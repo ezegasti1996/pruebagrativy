@@ -221,28 +221,37 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
 
                             <div className="relative w-full flex items-center justify-center h-full">
                                 {NOTIFICATIONS.map((notif, idx) => {
-                                    const diff = (idx - currentIndex + NOTIFICATIONS.length) % NOTIFICATIONS.length;
+                                    const length = NOTIFICATIONS.length;
+                                    const diff = (idx - currentIndex + length) % length;
 
-                                    // Clean mobile view: No partial cards. Strict opacity toggle.
-                                    let statusClasses = "opacity-0 pointer-events-none scale-95 absolute inset-0 m-auto h-fit";
-                                    let zIndex = 0;
+                                    // Stack Effect Logic (Cascading)
+                                    let statusClasses = "opacity-0 pointer-events-none scale-90 -translate-y-12 absolute inset-0 m-auto h-fit z-0"; // Default hidden/behind state
 
                                     if (diff === 0) {
-                                        statusClasses = "opacity-100 scale-100 z-30 absolute inset-0 m-auto h-fit";
-                                        zIndex = 30;
+                                        // Front Card
+                                        statusClasses = "opacity-100 scale-100 translate-y-0 z-30 absolute inset-0 m-auto h-fit shadow-2xl";
+                                    } else if (diff === 1) {
+                                        // 2nd in Stack
+                                        statusClasses = "opacity-70 scale-95 -translate-y-3 z-20 absolute inset-0 m-auto h-fit blur-[0.5px]";
+                                    } else if (diff === 2) {
+                                        // 3rd in Stack
+                                        statusClasses = "opacity-40 scale-90 -translate-y-6 z-10 absolute inset-0 m-auto h-fit blur-[1px]";
+                                    } else if (diff === length - 1) {
+                                        // Exiting/Previous Card (Fade out cleanly)
+                                        statusClasses = "opacity-0 scale-105 translate-y-8 z-40 absolute inset-0 m-auto h-fit";
                                     }
 
                                     return (
                                         <div
                                             key={idx}
-                                            className={`transition-all duration-500 ease-in-out transform ${statusClasses} w-full flex justify-center p-2`} // added padding to wrapper to prevent shadow clipping
-                                            style={{ zIndex }}
+                                            className={`transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform ${statusClasses} w-full flex justify-center p-2`}
+                                            style={{ zIndex: diff === 0 ? 30 : (20 - diff) }}
                                         >
                                             <IOSNotification
                                                 title={notif.title}
                                                 time={notif.time}
                                                 message={notif.message}
-                                                className={diff === 0 ? "" : ""} // Removed bg-change, let component handle it
+                                                className={diff === 0 ? "shadow-[0_10px_40px_rgba(0,0,0,0.5)]" : ""}
                                             />
                                         </div>
                                     );
