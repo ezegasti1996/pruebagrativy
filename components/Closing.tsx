@@ -14,59 +14,53 @@ interface NotificationData {
 
 const NOTIFICATIONS: NotificationData[] = [
   {
-    title: "Pago recibido",
+    title: "Pago transferido",
     time: "ahora",
     type: 'payment',
-    message: <span>Transferencia de <span className="text-white font-black text-xl">2.850,50 €</span> recibida de Amazon.</span>
+    message: <span className="text-gray-200">Amazon te ha enviado <span className="text-white font-bold">2.850,50 €</span></span>
   },
   {
-    title: "Vendido: Enviar ahora",
+    title: "¡Venta realizada!",
     time: "hace 2m",
     type: 'sale',
     message: (
         <div className="flex flex-col gap-1">
-            <span>Producto: <span className="text-white font-semibold">Monitor Gaming 27"</span></span>
-            <div className="flex items-center gap-1.5 text-green-400 font-bold text-[10px] bg-green-400/10 self-start px-2 py-0.5 rounded-full border border-green-400/20">
-                BENEFICIO: 112,50 €
-            </div>
+            <span className="text-gray-200">Monitor Gaming 27"</span>
+            <span className="text-[#FF9900] font-bold text-xs">Beneficio: +112,50 €</span>
         </div>
     )
   },
   {
-    title: "Pago desembolsado",
+    title: "Pago transferido",
     time: "hace 4h",
     type: 'payment',
-    message: <span>Se ha enviado un pago de <span className="text-white font-bold">410,20 €</span> a tu cuenta.</span>
+    message: <span className="text-gray-200">Amazon te ha enviado <span className="text-white font-bold">410,20 €</span></span>
   },
   {
-    title: "Vendido: Enviar ahora",
+    title: "¡Venta realizada!",
     time: "hace 12m",
     type: 'sale',
     message: (
         <div className="flex flex-col gap-1">
-            <span>Producto: <span className="text-white font-semibold">Silla Ergonómica Pro</span></span>
-            <div className="flex items-center gap-1.5 text-green-400 font-bold text-[10px] bg-green-400/10 self-start px-2 py-0.5 rounded-full border border-green-400/20">
-                BENEFICIO: 64,00 €
-            </div>
+            <span className="text-gray-200">Silla Ergonómica Pro</span>
+            <span className="text-[#FF9900] font-bold text-xs">Beneficio: +64,00 €</span>
         </div>
     )
   },
   {
-    title: "Saldo actualizado",
+    title: "Resumen de ventas",
     time: "hace 8h",
     type: 'payment',
-    message: <span>Saldo total disponible: <span className="text-white font-black text-xl">8.450,25 €</span>.</span>
+    message: <span className="text-gray-200">Ventas de hoy: <span className="text-white font-bold">1.450,25 €</span></span>
   },
   {
-    title: "Vendido: Enviar ahora",
+    title: "¡Venta realizada!",
     time: "hace 15m",
     type: 'sale',
     message: (
         <div className="flex flex-col gap-1">
-            <span>Producto: <span className="text-white font-semibold">Teclado Mecánico RGB</span></span>
-            <div className="flex items-center gap-1.5 text-green-400 font-bold text-[10px] bg-green-400/10 self-start px-2 py-0.5 rounded-full border border-green-400/20">
-                BENEFICIO: 45,90 €
-            </div>
+            <span className="text-gray-200">Teclado Mecánico RGB</span>
+            <span className="text-[#FF9900] font-bold text-xs">Beneficio: +45,90 €</span>
         </div>
     )
   }
@@ -90,34 +84,40 @@ const IOSNotification = ({
     floatDuration?: string
 }) => (
     <div 
-        className={`relative bg-[#1C1C1E] rounded-[20px] w-full max-w-[340px] p-4 font-sans transition-all duration-500 cursor-default select-none group overflow-hidden ${className}`}
+        className={`relative bg-[#2C2C2E]/90 backdrop-blur-md rounded-[18px] w-full max-w-[340px] p-3.5 font-sans transition-all duration-500 cursor-default select-none group overflow-hidden ${className}`}
         style={{ 
             animationDelay: delay,
-            boxShadow: '0 10px 40px -10px rgba(0,0,0,0.8)', // Custom smooth shadow
-            border: '1px solid rgba(255,255,255,0.08)', // Clean 1px border
+            boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+            border: '1px solid rgba(255,255,255,0.08)',
             ...style 
         }}
     >
         <div className="animate-float-y" style={{ animationDuration: floatDuration }}>
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-2 pb-2 border-b border-white/5">
                 <div className="flex items-center gap-2">
-                    <div className="w-[22px] h-[22px] rounded-[6px] overflow-hidden bg-black border border-white/10 shadow-sm relative shrink-0">
+                    {/* Real Amazon Seller App Icon Look */}
+                    <div className="w-6 h-6 rounded-[5px] bg-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
                         <img 
-                            src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/3d/8e/d53d8e64-0731-8e36-da5a-356ba33b2117/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/230x0w.webp" 
-                            alt="Amazon Seller" 
-                            className="w-full h-full object-cover"
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" 
+                            alt="A" 
+                            className="w-4 h-4 object-contain"
                         />
                     </div>
-                    <span className="text-[11px] text-white/70 font-bold tracking-wider uppercase truncate">AMAZON SELLER</span>
+                    <span className="text-[10px] text-white/90 font-bold tracking-wide uppercase">AMAZON SELLER</span>
                 </div>
-                <span className="text-[10px] text-[#8E8E93] font-medium shrink-0">{time}</span>
+                <span className="text-[10px] text-gray-400 font-medium">{time}</span>
             </div>
             
-            <div className="pl-0.5">
-                <h4 className="text-[15px] font-semibold text-white mb-0.5 leading-tight tracking-tight">{title}</h4>
-                <div className="text-[14px] text-white/80 leading-[1.4] tracking-tight">
-                    {message}
-                </div>
+            <div className="flex gap-3">
+                 {/* Sidebar accent based on content content estimation or random? We'll make it generic Amazon style */}
+                 <div className="w-[3px] rounded-full bg-[#FF9900] h-auto opacity-80"></div>
+                 
+                 <div className="flex-1">
+                    <h4 className="text-[14px] font-bold text-white mb-0.5 leading-tight">{title}</h4>
+                    <div className="text-[13px] leading-[1.4] tracking-tight">
+                        {message}
+                    </div>
+                 </div>
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@ const IOSNotification = ({
 
 const FloatingEmoji = ({ emoji, className, delay }: { emoji: string, className: string, delay: string }) => (
     <div 
-        className={`absolute text-6xl md:text-8xl select-none pointer-events-none animate-float-slow opacity-10 filter blur-[2px] ${className}`} 
+        className={`absolute text-6xl md:text-8xl select-none pointer-events-none animate-float-slow opacity-5 grayscale filter blur-[1px] ${className}`} 
         style={{ animationDelay: delay }}
     >
         {emoji}
