@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>FBA Academy - Acceso Exclusivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              amazon: {
+                DEFAULT: '#FF9900',
+                dark: '#E88B00'
+              },
+              bg: {
+                dark: '#05070A'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'float-slow': 'float 10s ease-in-out infinite',
+              'float-medium': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'unfold': 'unfold 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s',
+              'badge-move': 'badge-move 3s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0) rotate(0)' },
+                '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+              },
+              unfold: {
+                '0%': { maxWidth: '0', opacity: '0', transform: 'translateX(-20px)' },
+                '100%': { maxWidth: '300px', opacity: '1', transform: 'translateX(0)' },
+              },
+              'badge-move': {
+                '0%, 100%': { transform: 'rotate(-3deg) translateY(0)' },
+                '50%': { transform: 'rotate(0deg) translateY(-4px) scale(1.05)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+        body {
+            background-color: #05070A;
+            color: white;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+        }
+        /* Optimized scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF9900;
+        }
+        /* Performance optimizations */
+        .parallax-item {
+            will-change: transform;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
