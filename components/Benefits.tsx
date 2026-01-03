@@ -3,7 +3,7 @@ import { Search, Package, TrendingUp, CheckCircle2, Truck, BarChart3, Zap, Globe
 
 const Benefits: React.FC = () => {
     return (
-        <section className="container mx-auto px-6 py-32 relative z-10">
+        <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32 relative z-10">
 
             {/* SVG Definitions for Icon Gradients */}
             <svg width="0" height="0" className="absolute block">
@@ -26,7 +26,7 @@ const Benefits: React.FC = () => {
             {/* Background Elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
 
-            <div className="text-center mb-24 relative z-10 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <div className="text-center mb-12 md:mb-16 lg:mb-24 relative z-10 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6 shadow-lg shadow-cyan-500/10 hover:bg-white/10 transition-colors cursor-default">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75"></span>
@@ -38,25 +38,23 @@ const Benefits: React.FC = () => {
                     TU NEGOCIO EN <br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] to-[#FFB84D] animate-gradient-x">PILOTO AUTOMÁTICO</span>
                 </h2>
                 <p className="text-gray-400 font-medium text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                    <p className="text-gray-400 font-medium text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        SISTEMA HECHO PARA TI: <span className="text-white font-bold decoration-[#FF9900] underline decoration-2 underline-offset-4">Sin almacén, sin empleados y sin envíos.</span> 100% Automatizado.
-                    </p>
+                    LO QUE HACEMOS POR TI: <span className="text-white font-bold decoration-[#FF9900] underline decoration-2 underline-offset-4">Sin almacén. Sin empleados. Sin envíos.</span> Tú solo escalas.
                 </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
 
                 {/* Card 1: Product Intelligence (Cyan/Tech) */}
                 <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden hover:border-cyan-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(34,211,238,0.15)] animate-on-scroll opacity-0 translate-y-8" style={{ transitionDelay: '0ms' }}>
                     <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="bg-[#0A0C10] rounded-[28px] p-8 h-full relative z-10 flex flex-col">
-                        <div className="w-14 h-14 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-2xl flex items-center justify-center mb-8 border border-cyan-400/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+                    <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
+                        <div className="w-14 h-14 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-2xl flex items-center justify-center mb-6 lg:mb-8 border border-cyan-400/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(34,211,238,0.1)]">
                             <ScanSearch className="w-7 h-7" stroke="url(#cyan-gradient)" />
                         </div>
 
                         <h4 className="text-2xl font-black mb-4 font-heading text-white group-hover:text-cyan-400 transition-colors duration-300">ALGORITMO PROPIO</h4>
-                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-8">
+                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-6 lg:mb-8">
                             No adivines. Usamos datos masivos para detectar productos con <span className="text-white font-bold group-hover:text-cyan-300 transition-colors">alta demanda y baja competencia</span> antes que nadie.
                         </p>
 
@@ -100,13 +98,13 @@ const Benefits: React.FC = () => {
                 <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden hover:border-[#FF9900]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(255,153,0,0.15)] animate-on-scroll opacity-0 translate-y-8" style={{ transitionDelay: '200ms' }}>
                     <div className="absolute inset-0 bg-gradient-to-b from-[#FF9900]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="bg-[#0A0C10] rounded-[28px] p-8 h-full relative z-10 flex flex-col">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#FF9900]/10 to-orange-600/10 rounded-2xl flex items-center justify-center mb-8 border border-[#FF9900]/20 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(255,153,0,0.1)]">
+                    <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
+                        <div className="w-14 h-14 bg-gradient-to-br from-[#FF9900]/10 to-orange-600/10 rounded-2xl flex items-center justify-center mb-6 lg:mb-8 border border-[#FF9900]/20 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(255,153,0,0.1)]">
                             <Package className="w-7 h-7" stroke="url(#orange-gradient)" />
                         </div>
 
                         <h4 className="text-2xl font-black mb-4 font-heading text-white group-hover:text-[#FF9900] transition-colors duration-300">LOGÍSTICA FBA</h4>
-                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-8">
+                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-6 lg:mb-8">
                             Tú vendes, <span className="text-white font-bold group-hover:text-orange-300 transition-colors">Amazon envía.</span> El almacenamiento, empaquetado y atención al cliente funcionan 24/7 sin ti.
                         </p>
 
@@ -154,13 +152,13 @@ const Benefits: React.FC = () => {
                 <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(168,85,247,0.15)] animate-on-scroll opacity-0 translate-y-8" style={{ transitionDelay: '400ms' }}>
                     <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="bg-[#0A0C10] rounded-[28px] p-8 h-full relative z-10 flex flex-col">
-                        <div className="w-14 h-14 bg-gradient-to-br from-purple-500/10 to-pink-600/10 rounded-2xl flex items-center justify-center mb-8 border border-purple-500/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+                    <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
+                        <div className="w-14 h-14 bg-gradient-to-br from-purple-500/10 to-pink-600/10 rounded-2xl flex items-center justify-center mb-6 lg:mb-8 border border-purple-500/20 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(168,85,247,0.1)]">
                             <Globe2 className="w-7 h-7" stroke="url(#purple-gradient)" />
                         </div>
 
                         <h4 className="text-2xl font-black mb-4 font-heading text-white group-hover:text-purple-400 transition-colors duration-300">DOMINIO GLOBAL</h4>
-                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-8">
+                        <p className="text-gray-400 text-sm font-medium leading-relaxed mb-6 lg:mb-8">
                             Tu negocio sin fronteras. Desde la fábrica en <span className="text-white font-bold">China</span> directamente a los almacenes de <span className="text-white font-bold">USA</span> y <span className="text-white font-bold">España</span>.
                         </p>
 
