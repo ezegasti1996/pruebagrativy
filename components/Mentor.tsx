@@ -44,17 +44,25 @@ const Mentor: React.FC = () => {
 
                                 {/* THE "FRONT" CARD (The one that goes to back) */}
                                 <div
-                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-8 lg:left-auto lg:right-[-20px] lg:translate-x-0 lg:translate-y-0 z-20 bg-[#021024]/90 backdrop-blur-2xl border border-white/10 p-6 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-[280px] text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                    className={`absolute bottom-6 left-1/2 -translate-x-1/2 lg:bottom-12 lg:left-auto lg:top-auto lg:right-[-20px] lg:translate-x-0 lg:translate-y-0 z-20 bg-[#021024]/90 backdrop-blur-2xl border border-white/10 p-6 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-[280px] text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
                                     ${isExpanded
                                             ? 'opacity-0 scale-90 translate-y-10 blur-sm pointer-events-none'
-                                            : 'opacity-100 scale-100 rotate-2 hover:rotate-0 hover:border-amazon hover:shadow-[0_0_40px_rgba(255,153,0,0.4)]'
+                                            : 'opacity-100 scale-100 rotate-0 hover:rotate-0 hover:border-amazon hover:shadow-[0_0_40px_rgba(255,153,0,0.4)]'
                                         }
                                 `}
                                 >
-                                    <h3 className="text-[#FF9900] font-heading font-black text-3xl uppercase tracking-tighter mb-1">TU MENTOR</h3>
-                                    <div className="h-px w-full bg-gradient-to-r from-transparent via-[#FF9900] to-transparent mb-5 opacity-60"></div>
+                                    <div className="flex justify-between items-center mb-1">
+                                        <h3 className="text-[#FF9900] font-heading font-black text-3xl uppercase tracking-tighter">TU MENTOR</h3>
+                                        <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
+                                            <span className="relative flex h-2 w-2">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="h-px w-full bg-gradient-to-r from-transparent via-[#FF9900] to-transparent mb-4 opacity-60"></div>
 
-                                    <div className="space-y-1 mb-6">
+                                    <div className="space-y-1 mb-4">
                                         <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">TOTAL REVENUE:</p>
                                         <p className="text-white text-5xl font-black tracking-tight leading-none">
                                             <span className="text-2xl align-top mr-1 text-amazon">+</span>$25M
@@ -62,7 +70,13 @@ const Mentor: React.FC = () => {
                                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Verified Seller</p>
                                     </div>
 
-                                    <div className="pt-3 border-t border-white/5 mt-2 flex justify-between items-center">
+                                    {/* Push Venta Line */}
+                                    <div className="mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2 animate-pulse-slow">
+                                        <TrendingUp className="w-3.5 h-3.5 text-green-400" />
+                                        <span className="text-green-400 text-[11px] font-black tracking-wide uppercase">Ventas hoy: <span className="text-white text-sm ml-1">142</span></span>
+                                    </div>
+
+                                    <div className="pt-3 border-t border-white/5 flex justify-between items-center">
                                         <div className="text-left">
                                             <p className="text-[#FF9900] text-[10px] font-black tracking-wider uppercase">Expert</p>
                                             <p className="text-white text-xs font-bold">Emi de la Sierra</p>
