@@ -44,8 +44,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   }, [hasCounted]);
 
   return (
-    <section className="relative pt-20 lg:pt-24 pb-12 lg:pb-16 overflow-hidden z-10 px-6">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden z-10 px-6">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
         <div className="relative z-10 animate-fade-in-up">
 
