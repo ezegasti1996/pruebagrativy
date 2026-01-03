@@ -65,7 +65,7 @@ const Mentor: React.FC = () => {
 
                                 {/* THE "FRONT" CARD (The one that goes to back) */}
                                 <div
-                                    className={`absolute bottom-4 left-1/2 -translate-x-1/2 lg:bottom-12 lg:left-auto lg:top-auto lg:right-[-20px] lg:translate-x-0 lg:translate-y-0 z-20 bg-[#021024]/90 backdrop-blur-2xl border border-white/10 p-6 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-[280px] text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                    className={`absolute bottom-2 left-1/2 -translate-x-1/2 lg:bottom-12 lg:left-auto lg:top-auto lg:right-[-20px] lg:translate-x-0 lg:translate-y-0 z-20 bg-[#021024]/90 backdrop-blur-2xl border border-white/10 p-5 lg:p-6 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-[85%] max-w-[280px] text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
                                     ${isExpanded
                                             ? 'translate-y-[140%] opacity-0 lg:opacity-100 lg:translate-y-[120%] lg:translate-x-[20%] lg:rotate-12 blur-[1px]'
                                             : 'opacity-100 scale-100 rotate-0 hover:rotate-0 hover:border-amazon hover:shadow-[0_0_40px_rgba(255,153,0,0.4)]'
@@ -73,7 +73,7 @@ const Mentor: React.FC = () => {
                                 `}
                                 >
                                     <div className="flex justify-between items-center mb-1">
-                                        <h3 className="text-[#FF9900] font-heading font-black text-3xl uppercase tracking-tighter">TU MENTOR</h3>
+                                        <h3 className="text-[#FF9900] font-heading font-black text-2xl lg:text-3xl uppercase tracking-tighter">TU MENTOR</h3>
                                         <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
                                             <span className="relative flex h-2 w-2">
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -85,7 +85,7 @@ const Mentor: React.FC = () => {
 
                                     <div className="space-y-1 mb-4">
                                         <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">TOTAL REVENUE:</p>
-                                        <p className="text-white text-5xl font-black tracking-tight leading-none animate-shake-vertical inline-block">
+                                        <p className="text-white text-4xl lg:text-5xl font-black tracking-tight leading-none animate-shake-vertical inline-block">
                                             <span className="text-2xl align-top mr-1 text-amazon">+</span>$25M
                                         </p>
                                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Verified Seller</p>
@@ -94,7 +94,7 @@ const Mentor: React.FC = () => {
                                     {/* Push Venta Line */}
                                     <div className="mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2 animate-pulse-slow">
                                         <TrendingUp className="w-3.5 h-3.5 text-green-400" />
-                                        <span className="text-green-400 text-[11px] font-black tracking-wide uppercase">Ventas hoy: <span className="text-white text-sm ml-1">{salesCount}</span></span>
+                                        <span className="text-green-400 text-[10px] lg:text-[11px] font-black tracking-wide uppercase">Ventas hoy: <span className="text-white text-sm ml-1">{salesCount}</span></span>
                                     </div>
 
                                     <div className="pt-3 border-t border-white/5 flex justify-between items-center">
@@ -121,13 +121,13 @@ const Mentor: React.FC = () => {
 
                         {/* Text Side */}
                         <div className={`transition-all duration-700 ${isExpanded ? 'opacity-20 blur-[2px] scale-95 lg:opacity-100 lg:blur-0 lg:scale-100' : 'opacity-100 blur-0 scale-100'}`}>
-                            <h2 className="text-4xl md:text-5xl font-black font-heading mb-8 leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-black font-heading mb-8 leading-tight text-center lg:text-left">
                                 APRENDE DE QUIEN <br />
                                 YA HA <span className="text-amazon inline-block transform hover:scale-110 transition-transform duration-300 cursor-cell underline decoration-amazon/30 decoration-4 underline-offset-4">RECORRIDO</span> <br />
                                 EL CAMINO.
                             </h2>
 
-                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed pl-6 border-l-4 border-amazon/30">
+                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed px-4 lg:px-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30 text-center lg:text-left">
                                 <p>
                                     <span className="text-white font-bold block mb-1">Soy Emi de la Sierra.</span>
                                     Mi misión: <span className="text-white">Romper las barreras del comercio global.</span>
@@ -137,7 +137,7 @@ const Mentor: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="mt-12 flex items-center gap-6 p-6 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-sm">
+                            <div className="mt-8 lg:mt-12 flex items-center justify-center lg:justify-start gap-6 p-6 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-sm">
                                 <div className="flex flex-col">
                                     <span className="text-3xl font-black text-white">4.9/5</span>
                                     <div className="flex text-amazon text-sm space-x-0.5">
