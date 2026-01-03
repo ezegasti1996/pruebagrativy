@@ -37,9 +37,6 @@ const Benefits: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tighter font-heading text-white">
                     TU NEGOCIO EN <br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] to-[#FFB84D] animate-gradient-x">PILOTO AUTOMÁTICO</span>
                 </h2>
-                <p className="text-gray-400 font-medium text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                    LO QUE HACEMOS POR TI: <span className="text-white font-bold decoration-[#FF9900] underline decoration-2 underline-offset-4">Sin almacén. Sin empleados. Sin envíos.</span> Tú solo escalas.
-                </p>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
