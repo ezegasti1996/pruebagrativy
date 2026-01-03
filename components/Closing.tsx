@@ -182,7 +182,7 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-16 lg:py-32 px-6 overflow-hidden min-h-[950px] flex items-center bg-gradient-to-b from-bg-dark via-[#080a0f] to-black">
+        <section ref={sectionRef} className="relative py-16 lg:py-24 px-6 overflow-hidden min-h-[700px] flex items-center bg-gradient-to-b from-bg-dark via-[#080a0f] to-black">
             <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#7C3AED]/5 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EC4899]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -209,6 +209,10 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                             TU TIENDA <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#EC4899]">LISTA PARA VENDER</span>
                         </h2>
+
+                        <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-8 font-medium leading-relaxed">
+                            <span className="text-white font-bold">La notificación que cambiará tu día.</span> Aprende a recibir estos avisos cada mañana en tu móvil mientras tomas el primer café.
+                        </p>
 
                         {/* MOBILE ROTATING NOTIFICATIONS AREA */}
                         {/* Fixed Height to 180px and careful overflow/margin handling to avoid border clipping */}
@@ -245,10 +249,6 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                                 })}
                             </div>
                         </div>
-
-                        <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-8 lg:mb-12 font-medium leading-relaxed">
-                            <span className="text-white font-bold">La notificación que cambiará tu día.</span> Aprende a recibir estos avisos cada mañana en tu móvil mientras tomas el primer café.
-                        </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                             <button
