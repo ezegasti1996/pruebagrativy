@@ -210,6 +210,10 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#EC4899]">LISTA PARA VENDER</span>
                         </h2>
 
+                        <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-8 font-medium leading-relaxed">
+                            <span className="text-white font-bold">La notificación que cambiará tu día.</span> Aprende a recibir estos avisos cada mañana en tu móvil mientras tomas el primer café.
+                        </p>
+
                         {/* MOBILE ROTATING NOTIFICATIONS AREA */}
                         {/* Fixed Height to 180px and careful overflow/margin handling to avoid border clipping */}
                         <div className="lg:hidden w-full flex flex-col items-center h-[180px] mb-8 mt-4 relative">
@@ -254,12 +258,12 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                                 <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] opacity-100 group-hover:opacity-90 transition-opacity"></div>
                                 <span className="relative z-10 flex items-center gap-2">
                                     <PlayCircle className="w-5 h-5 fill-white/20" />
-                                    QUIERO RECIBIR ESTAS NOTIFICACIONES
+                                    ACCESO INMEDIATO
                                 </span>
                             </button>
                         </div>
 
-                        <div className="mt-8 flex items-center gap-8 text-[11px] font-bold text-gray-500 uppercase tracking-widest">
+                        <div className="mt-8 hidden lg:flex items-center gap-8 text-[11px] font-bold text-gray-500 uppercase tracking-widest">
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-[#FF9900]" />
                                 Resultados Reales
