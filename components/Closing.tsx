@@ -70,43 +70,11 @@ const NOTIFICATIONS: NotificationData[] = [
         message: (
             <div className="flex gap-3 items-center">
                 <div className="w-10 h-10 rounded border border-white/10 bg-white p-0.5 shrink-0 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=100&q=80" alt="Keyboard" className="w-full h-full object-cover rounded-sm" />
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b91add1?auto=format&fit=crop&w=100&q=80" alt="Keyboard" className="w-full h-full object-cover rounded-sm" />
                 </div>
                 <div className="flex flex-col gap-0.5">
-                    <span className="text-gray-200 text-xs leading-tight">Teclado Mecánico RGB ⌨️</span>
+                    <span className="text-gray-200 text-xs leading-tight">Teclado Mecánico RGB</span>
                     <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +45,90 €</span>
-                </div>
-            </div>
-        )
-    },
-    {
-        title: "¡Venta realizada!",
-        time: "hace 22m",
-        type: 'sale',
-        message: (
-            <div className="flex gap-3 items-center">
-                <div className="w-10 h-10 rounded border border-white/10 bg-white p-0.5 shrink-0 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=100&q=80" alt="Watch" className="w-full h-full object-cover rounded-sm" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                    <span className="text-gray-200 text-xs leading-tight">Smartwatch Series X</span>
-                    <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +89,00 €</span>
-                </div>
-            </div>
-        )
-    },
-    {
-        title: "¡Venta realizada!",
-        time: "hace 35m",
-        type: 'sale',
-        message: (
-            <div className="flex gap-3 items-center">
-                <div className="w-10 h-10 rounded border border-white/10 bg-white p-0.5 shrink-0 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=100&q=80" alt="AirFryer" className="w-full h-full object-cover rounded-sm" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                    <span className="text-gray-200 text-xs leading-tight">Air Fryer Pro XXL</span>
-                    <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +125,50 €</span>
                 </div>
             </div>
         )

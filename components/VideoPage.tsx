@@ -75,13 +75,19 @@ const VideoPage = () => {
                             CLASE GRATUITA 5 MINS
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black font-heading leading-[1.05] tracking-tight text-white">
-                            FACTURA <span className="text-amazon">10.000€</span> <br />
-                            EN SOLO 15 DÍAS
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black font-heading leading-[1.1] tracking-tight text-white mb-4">
+                            EL Método con el que mis alumnos consiguen <br className="hidden md:block" />
+                            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#FF9900] to-[#EC4899] animate-gradient-x pb-2">
+                                facturar 10.000 €
+                            </span>
                         </h1>
 
-                        <p className="text-lg md:text-2xl text-gray-400 font-medium max-w-2xl mx-auto leading-tight">
-                            Mira esta clase de 5 minutos y descubre cómo empezar a <span className="text-white border-b-2 border-amazon">vender pasado mañana.</span>
+                        <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                            en menos de 15 días desde 0
+                        </h2>
+
+                        <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base font-medium leading-relaxed">
+                            En solo 5 minutos entenderás como puedes estar <span className="text-white font-bold decoration-amazon underline decoration-2 underline-offset-2">vendiendo pasado mañana</span> después de ver esto.
                         </p>
                     </div>
 

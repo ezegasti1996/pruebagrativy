@@ -6,7 +6,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Rebranded Logo */}
-        <div className="flex items-center gap-3 cursor-pointer group select-none animate-logo-float">
+        <div className="flex items-center gap-3 cursor-pointer group select-none">
           {/* Icon Container */}
           <div className="w-10 h-10 bg-gradient-to-br from-[#FF9900] to-[#E88B00] rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300 transform group-hover:rotate-3 group-hover:scale-105">
             <img
