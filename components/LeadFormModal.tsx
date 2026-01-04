@@ -49,8 +49,9 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose }) => {
                     </p>
                 </div>
 
-                <form action="https://formspree.io/f/maqnaebl" method="POST" className="space-y-4">
+                <form action="https://formsubmit.co/emiclipsvirales@gmail.com" method="POST" className="space-y-4">
                     <input type="hidden" name="_next" value="https://emii-13hn.vercel.app/video" />
+                    <input type="hidden" name="_captcha" value="false" />
 
                     {/* Name Input */}
                     <div className="space-y-1">
