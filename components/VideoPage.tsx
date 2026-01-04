@@ -97,7 +97,7 @@ const VideoPage = () => {
             <FloatingBackground />
             <Header />
 
-            <main className="flex-grow flex flex-col items-center justify-center p-4 pt-24 pb-12">
+            <main className="flex-grow flex flex-col items-center justify-center p-4 pt-24 pb-12 relative z-10">
                 <div className="max-w-4xl w-full space-y-8 animate-fade-in-up">
 
                     {/* Header Section */}
