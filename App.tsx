@@ -31,31 +31,34 @@ function App() {
     return <VideoPage />;
   }
 
+  // Handle content unlock based on scroll
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (showWarning) {
-        setShowWarning(false);
-      }
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          // Dynamic unlock threshold: 40% of viewport height or 400px
-          const threshold = Math.min(window.innerHeight * 0.4, 400);
-          if (window.scrollY > threshold) {
-            setIsUnlocked(true);
-          }
-          ticking = false;
-        });
-        ticking = true;
+      // Dynamic unlock threshold: 40% of viewport height or 400px
+      const threshold = Math.min(window.innerHeight * 0.4, 400);
+      if (window.scrollY > threshold) {
+        setIsUnlocked(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Initial check
-    handleScroll();
-
+    handleScroll(); // Check immediately
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Handle auto-closing warning on scroll
+  useEffect(() => {
+    if (!showWarning) return;
+
+    const closeOnScroll = () => {
+      // Small threshold to avoid accidental closures on click-jitter
+      if (window.scrollY > 20) {
+        setShowWarning(false);
+      }
+    };
+
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    return () => window.removeEventListener('scroll', closeOnScroll);
   }, [showWarning]);
 
   const closeModal = () => setIsModalOpen(false);
