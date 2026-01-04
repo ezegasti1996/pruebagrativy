@@ -10,6 +10,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   const [studentCount, setStudentCount] = useState(105);
+  const [heroSales, setHeroSales] = useState(0);
   const [hasCounted, setHasCounted] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
 
@@ -28,8 +29,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             const elapsedTime = currentTime - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
             const ease = 1 - Math.pow(1 - progress, 4);
-            const current = Math.floor(start + (end - start) * ease);
-            setStudentCount(current);
+
+            setStudentCount(Math.floor(start + (end - start) * ease));
+            setHeroSales(Math.floor(0 + (104458 - 0) * ease));
+
             if (progress < 1) requestAnimationFrame(animate);
           };
 
@@ -130,16 +133,18 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Total Sales</p>
-                  <h3 className="text-2xl md:text-3xl font-black font-heading tracking-tight">$104,458.03</h3>
+                  <h3 className="text-2xl md:text-3xl font-black font-heading tracking-tight tabular-nums">
+                    ${heroSales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </h3>
                 </div>
-                <div className="bg-green-500/15 border border-green-500/30 text-green-400 text-[9px] px-2 py-1 rounded-lg font-black flex items-center gap-1">
+                <div className="bg-green-500/15 border border-green-500/30 text-green-400 text-[9px] px-2 py-1 rounded-lg font-black flex items-center gap-1 animate-pulse">
                   <TrendingUp className="w-3 h-3" />
                   +44.38%
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-amazon w-[82%] shadow-[0_0_20px_rgba(255,153,0,0.6)]"></div>
+                  <div className={`h-full bg-amazon shadow-[0_0_20px_rgba(255,153,0,0.6)] rounded-full transition-all duration-[2000ms] ease-out ${hasCounted ? 'w-[82%]' : 'w-0'}`}></div>
                 </div>
                 <div className="flex justify-between text-[10px] font-black text-gray-500 uppercase tracking-tighter">
                   <span>MON</span>
