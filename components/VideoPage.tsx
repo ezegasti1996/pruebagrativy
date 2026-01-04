@@ -17,6 +17,11 @@ const VideoPage = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // Unlock after 3 minutes (180 seconds)
+        const timer = setTimeout(() => {
+            setShowCTA(true);
+        }, 180000);
+
         // Load Vimeo Player API script
         const tag = document.createElement('script');
         tag.src = "https://player.vimeo.com/api/player.js";
@@ -42,10 +47,13 @@ const VideoPage = () => {
         };
 
         return () => {
+            clearTimeout(timer);
             if (playerRef.current) {
                 playerRef.current.unload();
             }
-            document.body.removeChild(tag);
+            if (document.body.contains(tag)) {
+                document.body.removeChild(tag);
+            }
         };
     }, []);
 
@@ -95,9 +103,14 @@ const VideoPage = () => {
                     <div className="text-center pt-8 min-h-[120px]">
                         {showCTA ? (
                             <div className="animate-fade-in-up">
-                                <button className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-black py-4 px-8 rounded-xl shadow-xl hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all transform hover:-translate-y-1 text-lg">
+                                <a
+                                    href="https://wa.link/7n987r"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-black py-4 px-8 rounded-xl shadow-xl hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all transform hover:-translate-y-1 text-lg"
+                                >
                                     SOLICITAR MI TIENDA AHORA
-                                </button>
+                                </a>
                                 <p className="text-xs text-gray-500 mt-3 animate-pulse">
                                     ¡Solo quedan 3 plazas disponibles para este mes!
                                 </p>
