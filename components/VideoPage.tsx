@@ -4,93 +4,50 @@ import Footer from './Footer';
 import FloatingBackground from './FloatingBackground';
 import { Lock } from 'lucide-react';
 
-// Declaration for YouTube API
+// Declaration for Vimeo API
 declare global {
     interface Window {
-        YT: any;
-        onYouTubeIframeAPIReady: () => void;
+        Vimeo: any;
     }
 }
 
 const VideoPage = () => {
     const [showCTA, setShowCTA] = useState(false);
     const playerRef = useRef<any>(null);
-    const intervalRef = useRef<any>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Load YouTube IFrame API script
-        if (!window.YT) {
-            const tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-        }
+        // Load Vimeo Player API script
+        const tag = document.createElement('script');
+        tag.src = "https://player.vimeo.com/api/player.js";
+        tag.async = true;
+        document.body.appendChild(tag);
 
-        // Define global callback
-        window.onYouTubeIframeAPIReady = () => {
-            createPlayer();
-        };
+        tag.onload = () => {
+            if (window.Vimeo && containerRef.current) {
+                const iframe = containerRef.current.querySelector('iframe');
+                if (iframe) {
+                    const player = new window.Vimeo.Player(iframe);
+                    playerRef.current = player;
 
-        // If API is already loaded (from previous navigation or reload)
-        if (window.YT && window.YT.Player) {
-            createPlayer();
-        }
-
-        return () => {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-        };
-    }, []);
-
-    const createPlayer = () => {
-        if (playerRef.current) return; // Prevent double initialization
-
-        playerRef.current = new window.YT.Player('youtube-player', {
-            height: '100%',
-            width: '100%',
-            videoId: 'jfKfPfyJRdk',
-            playerVars: {
-                'playsinline': 1,
-                'rel': 0,
-                'modestbranding': 1,
-                'controls': 1
-            },
-            events: {
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    };
-
-    const onPlayerStateChange = (event: any) => {
-        // YT.PlayerState.PLAYING is 1
-        if (event.data === 1) {
-            startChecking();
-        } else {
-            stopChecking();
-        }
-    };
-
-    const startChecking = () => {
-        if (intervalRef.current) return;
-        intervalRef.current = setInterval(() => {
-            if (playerRef.current && playerRef.current.getCurrentTime) {
-                const currentTime = playerRef.current.getCurrentTime();
-                const duration = playerRef.current.getDuration();
-
-                // Unlock at 50%
-                if (duration > 0 && (currentTime / duration) > 0.5) {
-                    setShowCTA(true);
-                    stopChecking();
+                    player.on('timeupdate', (data: any) => {
+                        player.getDuration().then((duration: number) => {
+                            if (duration > 0 && (data.seconds / duration) > 0.5) {
+                                setShowCTA(true);
+                            }
+                        });
+                    });
                 }
             }
-        }, 1000);
-    };
+        };
 
-    const stopChecking = () => {
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-        }
-    };
+        return () => {
+            if (playerRef.current) {
+                playerRef.current.unload();
+            }
+            document.body.removeChild(tag);
+        };
+    }, []);
 
     return (
         <div className="min-h-screen bg-bg-dark text-white selection:bg-amazon selection:text-black flex flex-col">
@@ -123,12 +80,20 @@ const VideoPage = () => {
                     </div>
 
                     {/* Video Container */}
-                    <div className="relative w-full aspect-[9/16] md:aspect-video max-w-sm md:max-w-4xl mx-auto rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,153,0,0.15)] group bg-[#05070A]">
+                    <div className="relative w-full aspect-[9/16] md:aspect-video max-w-sm md:max-w-4xl mx-auto rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,153,0,0.15)] group bg-[#05070A]" ref={containerRef}>
                         {/* Decorative Elements around video */}
                         <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] via-[#FF9900] to-[#EC4899] opacity-20 blur-lg group-hover:opacity-40 transition-opacity pointer-events-none"></div>
 
-                        {/* YouTube Player Container using ID */}
-                        <div id="youtube-player" className="relative w-full h-full"></div>
+                        {/* Vimeo Player Embed */}
+                        <div style={{ padding: '56.25% 0 0 0', position: 'relative', width: '100%', height: '100%' }}>
+                            <iframe
+                                src="https://player.vimeo.com/video/1151415308?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                frameBorder="0"
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                                title="FBA"
+                            ></iframe>
+                        </div>
                     </div>
 
                     {/* CTA Section below video */}
