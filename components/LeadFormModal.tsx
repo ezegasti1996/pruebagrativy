@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, User, Mail, MessageSquare, ArrowRight, Lock } from 'lucide-react';
+import { X, User, Mail, MessageSquare, ArrowRight, Lock, ArrowDown } from 'lucide-react';
 
 interface LeadFormModalProps {
     isOpen: boolean;
@@ -90,20 +90,41 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose }) => {
                     {/* WhatsApp Input */}
                     <div className="space-y-1">
                         <label className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">WhatsApp</label>
-                        <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-amazon transition-colors">
-                                <MessageSquare className="w-5 h-5" />
+                        <div className="flex gap-2">
+                            <div className="relative">
+                                <select
+                                    name="prefijo"
+                                    className="h-full bg-[#05070A] border border-white/10 text-sm text-white rounded-xl pl-3 pr-8 focus:outline-none focus:border-amazon/50 transition-all appearance-none cursor-pointer"
+                                    defaultValue="+34"
+                                >
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+57">🇨🇴 +57</option>
+                                    <option value="+56">🇨🇱 +56</option>
+                                    <option value="+51">🇵🇪 +51</option>
+                                    <option value="+593">🇪🇨 +593</option>
+                                    <option value="+58">🇻🇪 +58</option>
+                                    <option value="+502">🇬🇹 +502</option>
+                                    <option value="+506">🇨🇷 +506</option>
+                                </select>
+                                <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                                    <ArrowDown className="w-3 h-3" />
+                                </div>
                             </div>
-                            <input
-                                type="tel"
-                                name="whatsapp"
-                                required
-                                placeholder="+34 600 000 000"
-                                className="w-full bg-[#05070A] border border-white/10 text-white rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-amazon/50 focus:ring-1 focus:ring-amazon/50 transition-all placeholder:text-gray-600"
-                                onKeyPress={(e) => {
-                                    // Prevent non-numeric input if desired, or leave open
-                                }}
-                            />
+                            <div className="relative group flex-grow">
+                                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-amazon transition-colors">
+                                    <MessageSquare className="w-5 h-5" />
+                                </div>
+                                <input
+                                    type="tel"
+                                    name="whatsapp"
+                                    required
+                                    placeholder="600 000 000"
+                                    className="w-full bg-[#05070A] border border-white/10 text-white rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-amazon/50 focus:ring-1 focus:ring-amazon/50 transition-all placeholder:text-gray-600"
+                                />
+                            </div>
                         </div>
                     </div>
 
