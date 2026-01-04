@@ -32,7 +32,7 @@ const VideoPage = () => {
 
                     player.on('timeupdate', (data: any) => {
                         player.getDuration().then((duration: number) => {
-                            if (duration > 0 && (data.seconds / duration) > 0.5) {
+                            if (duration > 0 && (data.seconds / duration) > 0.9) {
                                 setShowCTA(true);
                             }
                         });
@@ -73,13 +73,10 @@ const VideoPage = () => {
                         </p>
                     </div>
 
-                    {/* Video Container */}
-                    <div className="relative w-full aspect-[9/16] md:aspect-video max-w-sm md:max-w-4xl mx-auto rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,153,0,0.15)] group bg-[#05070A]" ref={containerRef}>
-                        {/* Decorative Elements around video */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] via-[#FF9900] to-[#EC4899] opacity-20 blur-lg group-hover:opacity-40 transition-opacity pointer-events-none"></div>
-
+                    {/* Video Container - Simplified Branding */}
+                    <div className="relative w-full max-w-4xl mx-auto rounded-xl md:rounded-3xl overflow-hidden border border-white/5 shadow-2xl group bg-black" ref={containerRef}>
                         {/* Vimeo Player Embed */}
-                        <div style={{ padding: '56.25% 0 0 0', position: 'relative', width: '100%', height: '100%' }}>
+                        <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                             <iframe
                                 src="https://player.vimeo.com/video/1151415308?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                                 frameBorder="0"
@@ -104,7 +101,7 @@ const VideoPage = () => {
                         ) : (
                             <div className="flex flex-col items-center justify-center text-gray-500 gap-2 opacity-50 transition-opacity duration-1000">
                                 <Lock className="w-5 h-5 mb-1" />
-                                <p className="text-sm">El botón se desbloqueará al ver el 50% del video...</p>
+                                <p className="text-sm px-4 text-center">El botón se desbloqueará cuando termines de ver el entrenamiento...</p>
                             </div>
                         )}
                     </div>
