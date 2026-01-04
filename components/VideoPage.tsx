@@ -74,9 +74,17 @@ const VideoPage = () => {
                             en menos de 15 días desde 0
                         </h2>
 
-                        <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base font-medium leading-relaxed">
-                            En solo 5 minutos entenderás como puedes estar <span className="text-white font-bold decoration-amazon underline decoration-2 underline-offset-2">vendiendo pasado mañana</span> después de ver esto.
-                        </p>
+                        <div className="max-w-2xl mx-auto">
+                            <p className="text-base md:text-xl text-gray-300 font-medium leading-relaxed">
+                                En solo <span className="text-amazon font-black">5 minutos</span> entenderás como puedes estar
+                                <span className="block mt-3 text-2xl md:text-4xl font-heading font-extrabold text-white tracking-tight italic">
+                                    VENDIENDO <span className="text-transparent bg-clip-text bg-gradient-to-r from-amazon to-amazon-dark drop-shadow-[0_0_15px_rgba(255,153,0,0.3)]">PASADO MAÑANA</span>
+                                </span>
+                                <span className="block mt-2 text-sm md:text-base text-gray-500 font-bold uppercase tracking-widest opacity-80">
+                                    después de ver esto
+                                </span>
+                            </p>
+                        </div>
                     </div>
 
                     {/* Video Container */}
