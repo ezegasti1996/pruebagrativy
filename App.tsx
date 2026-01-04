@@ -11,14 +11,29 @@ import Footer from './components/Footer';
 import LeadFormModal from './components/LeadFormModal';
 import WarningModal from './components/WarningModal';
 
+import VideoPage from './components/VideoPage';
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
 
+  // Simple routing check
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => setPathname(window.location.pathname);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  if (pathname === '/video') {
+    return <VideoPage />;
+  }
+
   useEffect(() => {
     let ticking = false;
-    
+
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -36,7 +51,7 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     // Initial check
     handleScroll();
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -59,9 +74,9 @@ function App() {
   return (
     <div className="min-h-screen bg-bg-dark text-white selection:bg-amazon selection:text-black">
       <FloatingBackground />
-      
+
       <Header />
-      
+
       <main className="relative">
         <Hero onOpenModal={handleHeroAction} />
         <Results />
@@ -69,7 +84,7 @@ function App() {
         <Mentor />
         <Closing onOpenModal={handleClosingAction} />
       </main>
-      
+
       <Footer />
 
       <LeadFormModal isOpen={isModalOpen} onClose={closeModal} />
