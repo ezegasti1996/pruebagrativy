@@ -35,6 +35,9 @@ function App() {
     let ticking = false;
 
     const handleScroll = () => {
+      if (showWarning) {
+        setShowWarning(false);
+      }
       if (!ticking) {
         window.requestAnimationFrame(() => {
           // Dynamic unlock threshold: 40% of viewport height or 400px
@@ -53,7 +56,7 @@ function App() {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [showWarning]);
 
   const closeModal = () => setIsModalOpen(false);
   const closeWarning = () => setShowWarning(false);
@@ -63,7 +66,6 @@ function App() {
       setIsModalOpen(true);
     } else {
       setShowWarning(true);
-      setTimeout(() => setShowWarning(false), 4000);
     }
   };
 
