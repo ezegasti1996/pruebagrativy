@@ -35,8 +35,13 @@
             'unfold': 'unfold 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s',
             'badge-move': 'badge-move 3s ease-in-out infinite',
             'gradient-x': 'gradient-x 3s ease infinite',
+            'logo-float': 'logo-float 4s ease-in-out infinite',
           },
           keyframes: {
+            'logo-float': {
+              '0%, 100%': { transform: 'translateY(0) rotate(0)' },
+              '50%': { transform: 'translateY(-3px) rotate(1deg)' },
+            },
             float: {
               '0%, 100%': { transform: 'translateY(0) rotate(0)' },
               '50%': { transform: 'translateY(-20px) rotate(5deg)' },
