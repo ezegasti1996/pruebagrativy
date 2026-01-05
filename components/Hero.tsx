@@ -145,19 +145,19 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0 z-10">
             <div className="relative w-full max-w-[380px] lg:max-w-[420px]">
               {/* Soy Emiliano Label - Sticker Style */}
-              <div className="absolute top-0 -left-4 md:top-12 md:-left-24 z-[100] animate-float-slow block text-center">
+              <div className="absolute top-4 left-4 md:top-12 md:-left-16 z-50 animate-float-slow block text-center pointer-events-none">
                 <div className="relative transform -rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                  <div className="bg-white text-black px-6 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border-4 border-[#FF9900] relative z-20">
-                    <span className="font-heading font-black text-2xl md:text-4xl tracking-tighter block leading-none transform skew-x-[-5deg]">
+                  <div className="bg-white text-black px-5 py-2.5 rounded-xl shadow-2xl border-4 border-[#FF9900] relative z-20">
+                    <span className="font-heading font-black text-xl md:text-3xl tracking-tighter block leading-none transform skew-x-[-5deg]">
                       HOLA, <br /> SOY EMILIANO
                     </span>
                   </div>
 
-                  {/* Triangle Connector (Speech Bubble tail) */}
-                  <div className="absolute -bottom-3 right-8 w-6 h-6 bg-white border-b-4 border-r-4 border-[#FF9900] transform rotate-45 z-10"></div>
+                  {/* Triangle Connector */}
+                  <div className="absolute -bottom-2 right-6 w-5 h-5 bg-white border-b-4 border-r-4 border-[#FF9900] transform rotate-45 z-10"></div>
 
                   {/* Hand Drawn Arrow */}
-                  <svg className="absolute -bottom-20 -right-4 w-20 h-20 md:w-24 md:h-24 text-[#FF9900] z-0 filter drop-shadow-lg" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="absolute -bottom-16 -right-6 w-16 h-16 md:w-24 md:h-24 text-[#FF9900] z-0 filter drop-shadow-md" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M10 10 Q 50 10 80 80" />
                     <path d="M60 70 L 80 80 L 90 60" />
                   </svg>
