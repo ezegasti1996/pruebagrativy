@@ -144,12 +144,12 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0 z-10">
             <div className="relative w-full max-w-[380px] lg:max-w-[420px]">
               {/* Soy Emiliano Label */}
-              <div className="absolute -top-12 left-0 md:-left-8 z-50 animate-float-slow">
-                <div className="relative transform -rotate-12">
-                  <span className="font-heading font-black text-3xl md:text-4xl text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] tracking-tighter">
+              <div className="absolute top-6 left-6 z-50 animate-float-slow pointer-events-none">
+                <div className="relative transform -rotate-12 bg-black/20 backdrop-blur-md p-2 rounded-xl border border-white/10 shadow-xl">
+                  <span className="font-heading font-black text-2xl md:text-3xl text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] tracking-tighter">
                     SOY EMILIANO
                   </span>
-                  <svg className="absolute -bottom-8 left-1/2 w-12 h-12 md:w-16 md:h-16 text-[#FF9900] transform -translate-x-1/2 rotate-12 drop-shadow-lg" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4">
+                  <svg className="absolute -bottom-10 left-8 w-10 h-10 md:w-12 md:h-12 text-[#FF9900] transform rotate-12 drop-shadow-lg" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4">
                     <path d="M20 20 C 40 10, 60 40, 50 80" strokeLinecap="round" />
                     <path d="M40 70 L 50 80 L 65 65" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -203,6 +203,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <style>{`
         .text-shadow-glow {
             text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float-slow {
+          animation: float 4s ease-in-out infinite;
         }
       `}</style>
     </section>
