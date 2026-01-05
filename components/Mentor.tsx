@@ -129,10 +129,7 @@ const Mentor: React.FC = () => {
                             <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed pl-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30 text-left">
                                 <p>
                                     <span className="text-white font-bold block mb-1">Soy Emi de la Sierra.</span>
-                                    Mi misión: <span className="text-white">Romper las barreras del comercio global.</span>
-                                </p>
-                                <p>
-                                    <span className="text-amazon font-bold bg-amazon/10 px-2 py-0.5 rounded border border-amazon/20">+$25M USD</span> facturados. Más de 8 años vendiendo online, con libertad financiera absoluta.
+                                    <span className="text-amazon font-bold bg-amazon/10 px-2 py-0.5 rounded border border-amazon/20 inline-block mt-2">+$25M USD</span> facturados. Más de 8 años vendiendo online, con libertad financiera absoluta.
                                 </p>
                             </div>
 
