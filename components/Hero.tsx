@@ -144,20 +144,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="relative w-full max-w-[380px] lg:max-w-[420px] group">
 
             {/* Label "HOLA, SOY EMILIANO" - Superimposed for guaranteed visibility */}
-            <div className="absolute -top-12 -left-4 md:-top-16 md:-left-20 z-[60] animate-float-slow pointer-events-none">
-              <div className="relative transform -rotate-12">
-                <div className="bg-white text-black px-5 py-3 rounded-2xl shadow-2xl border-4 border-[#FF9900] relative z-20 whitespace-nowrap">
-                  <span className="font-heading font-black text-xl md:text-3xl tracking-tighter block leading-none transform skew-x-[-5deg]">
-                    HOLA, <br /> SOY EMILIANO
-                  </span>
-                </div>
-                {/* Speech Bubble Tail */}
-                <div className="absolute -bottom-2 right-8 w-6 h-6 bg-white border-b-4 border-r-4 border-[#FF9900] transform rotate-45 z-10"></div>
-                {/* Arrow pointing to image center */}
-                <svg className="absolute -bottom-16 -right-4 w-20 h-20 md:w-24 md:h-24 text-[#FF9900] z-0 filter drop-shadow-lg" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M10 10 Q 40 10 70 70" />
-                  <path d="M50 60 L 70 70 L 80 50" />
-                </svg>
+            {/* Label "SOY EMILIANO" - Clean & Subtle Version */}
+            <div className="absolute top-6 left-6 md:-left-10 z-[60] animate-float-slow pointer-events-none">
+              <div className="bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-amazon shadow-[0_0_10px_#FF9900] animate-pulse"></div>
+                <span className="font-heading font-black text-sm md:text-lg text-white uppercase tracking-widest whitespace-nowrap">
+                  Soy Emiliano
+                </span>
               </div>
             </div>
 
