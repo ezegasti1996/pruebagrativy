@@ -6,10 +6,10 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#05070A]/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
 
-        {/* Rebranded Logo - Added floating animation */}
-        <div className="flex items-center gap-3 cursor-pointer group select-none animate-float-slow">
+        {/* Rebranded Logo - Refined animations */}
+        <div className="flex items-center gap-3 cursor-pointer group select-none hover:scale-105 transition-transform duration-300">
           {/* Icon Container */}
-          <div className="w-10 h-10 bg-gradient-to-br from-[#FF9900] to-[#E88B00] rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300 transform group-hover:rotate-3 group-hover:scale-105">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#FF9900] to-[#E88B00] rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300 transform group-hover:rotate-3">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
               alt="Logo Icon"
@@ -17,17 +17,18 @@ const Header: React.FC = () => {
             />
           </div>
 
-          {/* Text Container - Added shine effect and sparkles */}
+          {/* Text Container */}
           <div className="flex flex-col justify-center relative">
-            <div className="flex items-baseline gap-[2px] relative overflow-hidden group">
-              <span className="text-xl font-black italic tracking-tighter text-white font-heading leading-none drop-shadow-md relative">
+            <div className="flex items-baseline gap-[2px] relative group">
+              <span className="text-xl font-black italic tracking-tighter text-white font-heading leading-none drop-shadow-md relative overflow-hidden px-0.5">
                 FBA
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shine pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none"></div>
               </span>
-              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative">
+              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative overflow-hidden px-0.5">
                 ACADEMY
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shine pointer-events-none animation-delay-500"></div>
-                <Sparkles className="absolute -top-3 -right-3 w-4 h-4 text-[#FF9900] animate-pulse-slow transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none animation-delay-1000"></div>
+                {/* Sparkle positioned outside overflow px-0.5 */}
+                <Sparkles className="absolute -top-3 -right-2 w-3 h-3 text-[#FF9900] animate-sparkle-pulse" />
               </span>
             </div>
             <div className="h-[2px] w-0 group-hover:w-full bg-white transition-all duration-500 ease-out rounded-full mt-0.5 opacity-50"></div>
@@ -42,27 +43,21 @@ const Header: React.FC = () => {
       <style>{`
         @keyframes shine {
           0% { transform: translateX(-100%); }
-          20%, 100% { transform: translateX(100%); }
+          15% { transform: translateX(100%); }
+          100% { transform: translateX(100%); }
         }
         .animate-shine {
-          animation: shine 3s infinite linear;
+          animation: shine 5s infinite ease-in-out;
         }
-        .animation-delay-500 {
-          animation-delay: 0.5s;
+        .animation-delay-1000 {
+          animation-delay: 1s;
         }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-3px); }
+        @keyframes sparkle-pulse {
+          0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+          50% { transform: scale(1.3) rotate(20deg); opacity: 1; }
         }
-        .animate-float-slow {
-          animation: float-slow 4s ease-in-out infinite;
-        }
-        @keyframes pulse-slow {
-          0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-          50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
+        .animate-sparkle-pulse {
+          animation: sparkle-pulse 2s infinite ease-in-out;
         }
       `}</style>
     </header>
