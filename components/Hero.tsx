@@ -53,33 +53,43 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <div className="relative z-10 animate-fade-in-up">
 
 
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6 tracking-tight font-heading uppercase">
-            Aprende a vender y <br />
-            <span className="text-amazon">YO TE MONTO</span> <br />
-            LA TIENDA <br />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6 tracking-tight font-heading">
+            APRENDE A <br />
+            CREAR UNA <br />
+            <span className="text-amazon">TIENDA</span> EN <br />
+            AMAZON Y <br />
             <span className="bg-amazon text-black px-4 py-1.5 inline-block mt-2 shadow-[0_0_30px_rgba(255,153,0,0.4)] animate-badge-move origin-center">
-              LISTA EN 72H
+              VENDE EN 72H
             </span>
           </h1>
 
           <p className="text-base md:text-lg text-gray-400 max-w-lg mb-8 leading-relaxed font-medium">
-            Selecciono el producto ganador por ti para que
+            Selecciono por ti el producto para que
             <span className="inline-block bg-red-600 text-white font-black text-sm md:text-base px-2 py-0.5 rounded transform -rotate-2 mx-1.5 shadow-[0_0_15px_rgba(220,38,38,0.5)] border border-red-500/50 hover:scale-105 transition-transform">
-              NO PIERDAS TIEMPO
+              NO pierdas tiempo
             </span>
-            en buscarlo y empieces a facturar rápido.
+            en buscarlo y
+            <span className="block mt-4 text-2xl md:text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] via-[#FFC04D] to-[#FF9900] italic tracking-tighter drop-shadow-[0_0_30px_rgba(255,153,0,0.4)] leading-none pb-2">
+              TE MONTO LA TIENDA.
+            </span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <button
               onClick={onOpenModal}
-              className="relative group px-12 py-5 rounded-2xl font-black text-sm text-white flex items-center justify-center gap-4 shadow-2xl overflow-hidden transition-all hover:-translate-y-1 active:scale-95 hover:shadow-[0_0_40px_rgba(124,58,237,0.5)] cursor-pointer w-full sm:w-auto"
+              className="relative group px-8 py-5 rounded-2xl font-black text-sm text-white flex items-center justify-center gap-4 shadow-2xl overflow-hidden transition-all hover:-translate-y-1 active:scale-95 hover:shadow-[0_0_40px_rgba(124,58,237,0.5)] cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] transition-opacity group-hover:opacity-90"></div>
               <span className="relative z-10 flex items-center gap-2">
                 <PlayCircle className="w-5 h-5 fill-white/20" />
                 VER CLASE GRATIS
               </span>
+            </button>
+            <button
+              onClick={onOpenModal}
+              className="px-8 py-5 rounded-2xl font-black text-black text-sm bg-amazon hover:bg-amazon-dark transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_30px_rgba(255,153,0,0.3)] cursor-pointer"
+            >
+              QUIERO MI TIENDA AHORA
             </button>
           </div>
 
