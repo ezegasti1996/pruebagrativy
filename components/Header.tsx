@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Rebranded Logo - Refined animations */}
-        <div className="flex items-center gap-3 cursor-pointer group select-none hover:scale-105 transition-transform duration-300">
+        <div className="flex items-center gap-3 cursor-pointer group select-none animate-float-slow">
           {/* Icon Container - Removed background glow/shadow */}
           <div className="w-10 h-10 bg-gradient-to-br from-[#FF9900] to-[#E88B00] rounded-xl flex items-center justify-center transition-all duration-300 transform group-hover:rotate-3">
             <img
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
                 FBA
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none"></div>
               </span>
-              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative overflow-hidden pl-0.5 pr-4">
+              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative overflow-hidden pl-0.5 pr-6">
                 ACADEMY
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none animation-delay-1000"></div>
                 {/* Sparkle positioned outside overflow px-0.5 */}
