@@ -69,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               NO pierdas tiempo
             </span> y
             <span className="block mt-4 text-2xl md:text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] via-[#FFC04D] to-[#FF9900] italic tracking-tighter drop-shadow-[0_0_30px_rgba(255,153,0,0.4)] leading-none pb-2">
-              TE MONTO LA TIENDA.
+              TE MONTO LA TIENDA
             </span>
           </p>
 
