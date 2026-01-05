@@ -76,19 +76,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <button
               onClick={onOpenModal}
-              className="relative group px-8 py-5 rounded-2xl font-black text-sm text-white flex items-center justify-center gap-4 shadow-2xl overflow-hidden transition-all hover:-translate-y-1 active:scale-95 hover:shadow-[0_0_40px_rgba(124,58,237,0.5)] cursor-pointer"
+              className="relative group px-12 py-5 rounded-2xl font-black text-sm text-white flex items-center justify-center gap-4 shadow-2xl overflow-hidden transition-all hover:-translate-y-1 active:scale-95 hover:shadow-[0_0_40px_rgba(124,58,237,0.5)] cursor-pointer w-full sm:w-auto"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] transition-opacity group-hover:opacity-90"></div>
               <span className="relative z-10 flex items-center gap-2">
                 <PlayCircle className="w-5 h-5 fill-white/20" />
                 VER CLASE GRATIS
               </span>
-            </button>
-            <button
-              onClick={onOpenModal}
-              className="px-8 py-5 rounded-2xl font-black text-black text-sm bg-amazon hover:bg-amazon-dark transition-all hover:-translate-y-1 active:scale-95 shadow-[0_10px_30px_rgba(255,153,0,0.3)] cursor-pointer"
-            >
-              QUIERO MI TIENDA AHORA
             </button>
           </div>
 
