@@ -66,9 +66,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <p className="text-base md:text-lg text-gray-400 max-w-lg mb-8 leading-relaxed font-medium">
             Selecciono por ti el producto para que
             <span className="inline-block bg-red-600 text-white font-black text-sm md:text-base px-2 py-0.5 rounded transform -rotate-2 mx-1.5 shadow-[0_0_15px_rgba(220,38,38,0.5)] border border-red-500/50 hover:scale-105 transition-transform">
-              NO pierdas tiempo
+              NO pierdas tiempo y
             </span>
-            en buscarlo y
             <span className="block mt-4 text-2xl md:text-5xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] via-[#FFC04D] to-[#FF9900] italic tracking-tighter drop-shadow-[0_0_30px_rgba(255,153,0,0.4)] leading-none pb-2">
               TE MONTO LA TIENDA.
             </span>
