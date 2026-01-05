@@ -24,7 +24,7 @@ const Header: React.FC = () => {
                 FBA
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none"></div>
               </span>
-              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative overflow-hidden px-0.5">
+              <span className="text-xl font-black italic tracking-tighter text-[#FF9900] font-heading leading-none drop-shadow-md relative overflow-hidden pl-0.5 pr-4">
                 ACADEMY
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shine pointer-events-none animation-delay-1000"></div>
                 {/* Sparkle positioned outside overflow px-0.5 */}
