@@ -8,63 +8,77 @@ declare global {
 }
 
 const BackgroundMusic: React.FC = () => {
+    const playerRef = React.useRef<any>(null);
+
     useEffect(() => {
         // 1. Load the YouTube IFrame Player API code asynchronously.
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+        if (!window.YT) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+        }
 
-        // 2. Create an <iframe> (and YouTube player) after the API code downloads.
-        window.onYouTubeIframeAPIReady = () => {
-            new window.YT.Player('background-music-player', {
-                height: '0',
-                width: '0',
-                videoId: 'J_cVLX6DjWg', // Bad Bunny - Un Coco
-                playerVars: {
-                    'playsinline': 1,
-                    'autoplay': 1,
-                    'loop': 1,
-                    'playlist': 'J_cVLX6DjWg',
-                    'controls': 0,
-                    'disablekb': 1
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
+        // 2. Initialize player when API is ready
+        const initPlayer = () => {
+            window.YT.ready(() => {
+                new window.YT.Player('background-music-player', {
+                    height: '0',
+                    width: '0',
+                    videoId: 'J_cVLX6DjWg', // Bad Bunny - Un Coco
+                    playerVars: {
+                        'playsinline': 1,
+                        'autoplay': 1,
+                        'controls': 0,
+                        'disablekb': 1,
+                        'fs': 0,
+                        'loop': 1,
+                        'playlist': 'J_cVLX6DjWg'
+                    },
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
             });
         };
 
+        if (window.YT && window.YT.Player) {
+            initPlayer();
+        } else {
+            window.onYouTubeIframeAPIReady = initPlayer;
+        }
+
+        // 3. User Interaction Fallback
+        // Browsers block unmuted audio. We start attempting to mute/unmute on first click.
+        const handleInteraction = () => {
+            const player = playerRef.current;
+            if (player && typeof player.playVideo === 'function') {
+                player.unMute();
+                player.setVolume(20);
+                player.playVideo();
+                // Remove listeners after successful interaction
+                document.removeEventListener('click', handleInteraction);
+                document.removeEventListener('touchstart', handleInteraction);
+                document.removeEventListener('keydown', handleInteraction);
+            }
+        };
+
+        document.addEventListener('click', handleInteraction);
+        document.addEventListener('touchstart', handleInteraction);
+        document.addEventListener('keydown', handleInteraction);
+
         return () => {
-            // Cleanup if needed
-            window.onYouTubeIframeAPIReady = () => { };
+            document.removeEventListener('click', handleInteraction);
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('keydown', handleInteraction);
         };
     }, []);
 
-    // 3. The API will call this function when the video player is ready.
     const onPlayerReady = (event: any) => {
-        const player = event.target;
-        player.setVolume(20);
-
-        // Try to auto-play
-        player.playVideo();
-
-        // If browser blocks autoplay with sound, we need a fallback:
-        // Listen for any user interaction on the page to trigger play
-        const unlockAudio = () => {
-            if (player && typeof player.playVideo === 'function') {
-                player.playVideo();
-                player.unMute();
-            }
-            // Remove listeners once done
-            document.removeEventListener('click', unlockAudio);
-            document.removeEventListener('touchstart', unlockAudio);
-            document.removeEventListener('keydown', unlockAudio);
-        };
-
-        document.addEventListener('click', unlockAudio);
-        document.addEventListener('touchstart', unlockAudio);
-        document.addEventListener('keydown', unlockAudio);
+        playerRef.current = event.target;
+        // Start playback muted to satisfy browser autoplay policy
+        event.target.mute();
+        event.target.playVideo();
     };
 
     return (
