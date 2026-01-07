@@ -3,22 +3,31 @@ import React from 'react';
 const Loader: React.FC = () => {
     return (
         <div className="fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center">
-            <div className="relative">
-                {/* Amazon Icon */}
-                <div className="w-24 h-24 md:w-32 md:h-32 mb-8 relative flex items-center justify-center">
+            <div className="flex flex-col items-center">
+                {/* Logo & Orbits Container */}
+                <div className="relative w-40 h-40 flex items-center justify-center mb-10">
+                    {/* Inner Orbit */}
+                    <div className="absolute inset-4 border border-white/5 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
+
+                    {/* Outer Orbit with Dot */}
+                    <div className="absolute inset-0 rounded-full animate-spin-slow">
+                        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#FF9900] rounded-full shadow-[0_0_15px_#FF9900]"></div>
+                    </div>
+
+                    {/* Amazon Icon */}
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                         alt="Loading..."
-                        className="w-full h-full object-contain brightness-0 invert animate-pulse"
+                        className="w-20 h-20 object-contain brightness-0 invert animate-pulse relative z-10"
                     />
                 </div>
 
                 {/* Loading Bar */}
-                <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
+                <div className="w-56 h-1 bg-white/5 rounded-full overflow-hidden mx-auto mb-6">
                     <div className="h-full bg-[#FF9900] animate-loading-bar shadow-[0_0_10px_#FF9900]"></div>
                 </div>
 
-                <p className="text-gray-500 text-xs font-bold tracking-[0.3em] uppercase mt-4 text-center animate-pulse">
+                <p className="text-gray-500 text-xs font-black tracking-[0.4em] uppercase text-center animate-pulse">
                     CARGANDO
                 </p>
             </div>

@@ -20,7 +20,7 @@ const Results: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-20 animate-fade-in-up">
+                <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter font-heading text-white">
                         RESULTADOS DE <span className="text-amazon italic">ALUMNOS</span>
                     </h2>

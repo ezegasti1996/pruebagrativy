@@ -25,7 +25,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose }) => {
             ></div>
 
             {/* Modal Content */}
-            <div className="relative bg-[#0F1115] border border-white/10 rounded-[30px] w-full max-w-md p-8 shadow-[0_0_50px_rgba(255,153,0,0.15)] animate-fade-in-up overflow-hidden">
+            <div className="relative bg-[#0F1115] border border-white/10 rounded-[30px] w-full max-w-md p-8 shadow-[0_0_50px_rgba(255,153,0,0.15)] overflow-hidden">
 
                 {/* Decorative Top Line */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7C3AED] via-[#FF9900] to-[#EC4899]"></div>

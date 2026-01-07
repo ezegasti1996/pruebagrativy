@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       <div className="container mx-auto grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
         {/* Column 1: Text Content */}
-        <div className="relative z-10 animate-fade-in-up">
+        <div className="relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6 tracking-tight font-heading">
             APRENDE A <br />
             CREAR UNA <br />
