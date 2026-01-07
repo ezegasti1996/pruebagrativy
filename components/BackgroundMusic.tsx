@@ -43,8 +43,28 @@ const BackgroundMusic: React.FC = () => {
 
     // 3. The API will call this function when the video player is ready.
     const onPlayerReady = (event: any) => {
-        event.target.setVolume(20); // Set volume to 20% ("muy suavemente")
-        event.target.playVideo();
+        const player = event.target;
+        player.setVolume(20);
+
+        // Try to auto-play
+        player.playVideo();
+
+        // If browser blocks autoplay with sound, we need a fallback:
+        // Listen for any user interaction on the page to trigger play
+        const unlockAudio = () => {
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
+                player.unMute();
+            }
+            // Remove listeners once done
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('keydown', unlockAudio);
+        };
+
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio);
+        document.addEventListener('keydown', unlockAudio);
     };
 
     return (

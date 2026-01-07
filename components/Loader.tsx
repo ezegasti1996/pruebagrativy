@@ -5,6 +5,25 @@ interface LoaderProps {
 }
 
 const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
+
+    React.useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = 'hidden';
+            // Also prevent touchmove to stop pull-to-refresh or scroll on mobile
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        };
+    }, [isLoading]);
+
     return (
         <div
             className={`fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center transition-opacity duration-1000 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
