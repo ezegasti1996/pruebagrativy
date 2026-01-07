@@ -1,8 +1,15 @@
 import React from 'react';
 
-const Loader: React.FC = () => {
+interface LoaderProps {
+    isLoading: boolean;
+}
+
+const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
     return (
-        <div className="fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center">
+        <div
+            className={`fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center transition-opacity duration-1000 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+        >
             <div className="flex flex-col items-center">
                 {/* Logo & Orbits Container */}
                 <div className="relative w-40 h-40 flex items-center justify-center mb-10">

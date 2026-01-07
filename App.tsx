@@ -38,14 +38,6 @@ function App() {
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (pathname === '/video') {
-    return <VideoPage />;
-  }
-
   // Handle content unlock based on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -92,20 +84,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-dark text-white selection:bg-amazon selection:text-black">
-      <FloatingBackground />
+    <div className="min-h-screen bg-bg-dark text-white selection:bg-amazon selection:text-black font-sans antialiased">
+      <Loader isLoading={isLoading} />
 
-      <Header />
+      {pathname === '/video' ? (
+        <VideoPage />
+      ) : (
+        <>
+          <FloatingBackground />
 
-      <main className="relative">
-        <Hero onOpenModal={handleHeroAction} />
-        <Results />
-        <Benefits />
-        <Mentor />
-        <Closing onOpenModal={handleClosingAction} />
-      </main>
+          <Header />
 
-      <Footer />
+          <main className="relative">
+            <Hero onOpenModal={handleHeroAction} />
+            <Results />
+            <Benefits />
+            <Mentor />
+            <Closing onOpenModal={handleClosingAction} />
+          </main>
+
+          <Footer />
+        </>
+      )}
 
       <LeadFormModal isOpen={isModalOpen} onClose={closeModal} />
       <WarningModal isOpen={showWarning} onClose={closeWarning} />
