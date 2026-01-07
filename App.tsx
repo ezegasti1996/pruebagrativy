@@ -13,19 +13,34 @@ import WarningModal from './components/WarningModal';
 
 import VideoPage from './components/VideoPage';
 
+import Loader from './components/Loader';
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Simple routing check
   const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    // Fake loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleLocationChange = () => setPathname(window.location.pathname);
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (pathname === '/video') {
     return <VideoPage />;
