@@ -10,10 +10,7 @@ import Closing from './components/Closing';
 import Footer from './components/Footer';
 import LeadFormModal from './components/LeadFormModal';
 import WarningModal from './components/WarningModal';
-
 import VideoPage from './components/VideoPage';
-import BackgroundMusic from './components/BackgroundMusic';
-
 import Loader from './components/Loader';
 
 function App() {
@@ -92,7 +89,6 @@ function App() {
         <VideoPage />
       ) : (
         <>
-          <BackgroundMusic />
           <FloatingBackground />
 
           <Header />
