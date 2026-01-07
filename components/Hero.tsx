@@ -34,12 +34,11 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               // Fast Phase: 345 -> 475
               const p = progress / threshold; // 0 to 1
               const ease = 1 - Math.pow(1 - p, 3); // Ease out cubic
-              newStudentCount = Math.floor(345 + (475 - 345) * ease);
+              newStudentCount = Math.floor(345 + (850 - 345) * ease);
             } else {
-              // Slow Phase: 475 -> 500 (Approximating "suba lento" with small range)
-              const p = (progress - threshold) / (1 - threshold); // 0 to 1
-              const ease = 1 - Math.pow(1 - p, 2); // Ease out quad
-              newStudentCount = Math.floor(475 + (500 - 475) * ease);
+              const p = (progress - threshold) / (1 - threshold);
+              const ease = 1 - Math.pow(1 - p, 2);
+              newStudentCount = Math.floor(850 + (1000 - 850) * ease);
             }
             setStudentCount(newStudentCount);
 
@@ -113,12 +112,12 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="inline-flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/10 transition-colors cursor-default select-none" ref={counterRef}>
             <div className="flex -space-x-3">
               {[
-                "https://images.unsplash.com/photo-1542596594-649edbc13630",
-                "https://images.unsplash.com/photo-1589571894960-20bbe2815d22",
-                "https://images.unsplash.com/photo-1615813967515-e1838c1c5116"
+                "/hero_student_1.png",
+                "/hero_student_2.png",
+                "/hero_student_3.png"
               ].map((url, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#121212] bg-gray-800 overflow-hidden relative z-10 shadow-md">
-                  <img src={`${url}?auto=format&fit=crop&w=100&q=80`} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" />
+                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" />
                 </div>
               ))}
               <div className="w-10 h-10 rounded-full border-2 border-[#121212] bg-amazon text-black flex items-center justify-center relative z-20 text-[10px] font-black shadow-lg">
