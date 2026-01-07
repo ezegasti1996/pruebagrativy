@@ -143,7 +143,7 @@ const Mentor: React.FC = () => {
                                 </div>
                                 <div className="h-10 w-px bg-white/10"></div>
                                 <div className="flex flex-col">
-                                    <span className="text-3xl font-black text-white">500+</span>
+                                    <span className="text-3xl font-black text-white">+1000</span>
                                     <span className="text-xs text-gray-500 uppercase font-bold tracking-wider mt-1">Alumnos</span>
                                 </div>
                             </div>

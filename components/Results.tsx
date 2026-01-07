@@ -36,7 +36,7 @@ const Results: React.FC = () => {
                         <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
-                                    <img src="https://i.pravatar.cc/100?u=52" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
+                                    <img src="/carlos.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
                                     <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
                                 </div>
                                 <div>
@@ -104,7 +104,7 @@ const Results: React.FC = () => {
                         <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
-                                    <img src="https://i.pravatar.cc/100?u=44" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
+                                    <img src="/sofia.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
                                     <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
                                 </div>
                                 <div>
@@ -170,7 +170,7 @@ const Results: React.FC = () => {
                         <div className="bg-[#2A2A2A] px-4 py-3 rounded-t-[16px] border-b border-gray-600 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
-                                    <img src="https://i.pravatar.cc/100?u=33" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-[#FF9900] shadow-sm" />
+                                    <img src="/javier.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-[#FF9900] shadow-sm" />
                                     <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-[#1E1E1E]"></div>
                                 </div>
                                 <div>
