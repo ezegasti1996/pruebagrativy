@@ -28,7 +28,7 @@ function App() {
     // Fake loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3500);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 

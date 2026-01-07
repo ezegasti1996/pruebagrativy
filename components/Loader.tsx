@@ -19,7 +19,7 @@ const Loader: React.FC = () => {
                 </div>
 
                 <p className="text-gray-500 text-xs font-bold tracking-[0.3em] uppercase mt-4 text-center animate-pulse">
-                    Cargando entorno...
+                    CARGANDO
                 </p>
             </div>
 
@@ -30,7 +30,7 @@ const Loader: React.FC = () => {
           100% { width: 100%; transform: translateX(0); }
         }
         .animate-loading-bar {
-          animation: loading-bar 3.5s ease-out forwards;
+          animation: loading-bar 4s ease-out forwards;
         }
       `}</style>
         </div>
