@@ -5,16 +5,12 @@ const Loader: React.FC = () => {
         <div className="fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center">
             <div className="relative">
                 {/* Amazon Icon */}
-                <div className="w-24 h-24 md:w-32 md:h-32 mb-8 relative">
+                <div className="w-24 h-24 md:w-32 md:h-32 mb-8 relative flex items-center justify-center">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                         alt="Loading..."
                         className="w-full h-full object-contain brightness-0 invert animate-pulse"
                     />
-                    {/* Orbiting particle */}
-                    <div className="absolute inset-0 animate-spin-slow">
-                        <div className="w-3 h-3 bg-[#FF9900] rounded-full absolute -top-2 left-1/2 -translate-x-1/2 shadow-[0_0_15px_#FF9900]"></div>
-                    </div>
                 </div>
 
                 {/* Loading Bar */}
