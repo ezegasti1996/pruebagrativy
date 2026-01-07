@@ -143,6 +143,53 @@
 }
 </script>
   <link rel="stylesheet" href="/index.css">
+  <style>
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Observe all elements with the class 'animate-on-scroll'
+      // We will need to manually add this class to elements in React
+      // But since React might render later, we can use a MutationObserver or simply poll/delegate.
+      // For simplicity in this setup, let's try a delegation approach or just run it periodically? 
+      // Better yet, let's expose a global function or just rely on the React components adding the class.
+
+      // Actually, since we're in React, we can't easily select elements *here* that don't exist yet. 
+      // However, we can use a global MutationObserver to watch for new elements.
+      const mutationObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) { // Element node
+              if (node.classList.contains('animate-on-scroll')) {
+                observer.observe(node);
+              }
+              // Also check children
+              node.querySelectorAll('.animate-on-scroll').forEach(child => observer.observe(child));
+            }
+          });
+        });
+      });
+
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
 </head>
 
 <body>
