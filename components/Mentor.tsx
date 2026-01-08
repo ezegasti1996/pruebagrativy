@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { X, Maximize2, UserCheck, TrendingUp } from 'lucide-react';
 
-const Mentor: React.FC = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const [salesCount, setSalesCount] = useState(12);
+const SalesCounter: React.FC = () => {
+    const [count, setCount] = useState(12);
 
     useEffect(() => {
         const end = 213;
         const duration = 2500;
         const startTime = Date.now();
-
         let animationFrameId: number;
 
         const update = () => {
             const now = Date.now();
             const progress = Math.min((now - startTime) / duration, 1);
-            // Ease out quart
-            const ease = 1 - Math.pow(1 - progress, 4);
+            const ease = 1 - Math.pow(1 - progress, 4); // Ease out quart
 
             const current = Math.floor(12 + (end - 12) * ease);
-            setSalesCount(current);
+            setCount(current);
 
             if (progress < 1) {
                 animationFrameId = requestAnimationFrame(update);
@@ -27,9 +24,14 @@ const Mentor: React.FC = () => {
         };
 
         animationFrameId = requestAnimationFrame(update);
-
         return () => cancelAnimationFrame(animationFrameId);
     }, []);
+
+    return <span className="text-white text-sm ml-1">{count}</span>;
+};
+
+const Mentor: React.FC = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
         <section className="py-20 relative z-10 px-6 overflow-hidden">
@@ -77,7 +79,7 @@ const Mentor: React.FC = () => {
                                     {/* Push Venta Line */}
                                     <div className="mb-0 lg:mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2">
                                         <TrendingUp className="w-3.5 h-3.5 text-green-400" />
-                                        <span className="text-green-400 text-[10px] lg:text-[11px] font-black tracking-wide uppercase">Ventas hoy: <span className="text-white text-sm ml-1">{salesCount}</span></span>
+                                        <span className="text-green-400 text-[10px] lg:text-[11px] font-black tracking-wide uppercase">Ventas hoy: <SalesCounter /></span>
                                     </div>
 
                                     <div className="hidden lg:flex pt-3 border-t border-white/5 justify-between items-center">

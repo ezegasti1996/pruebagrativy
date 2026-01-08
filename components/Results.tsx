@@ -2,15 +2,29 @@ import React from 'react';
 
 // Helper for the bar chart visualization
 const AmazonBarChart: React.FC<{ bars: number[], color: string, className?: string }> = ({ bars, color, className = "" }) => (
-    <div className={`flex items-end justify-between h-32 gap-[2px] mt-4 mb-6 ${className}`}>
-        {bars.map((height, i) => (
-            <div
-                key={i}
-                style={{ height: `${height}%` }}
-                className={`flex-1 rounded-t-[1px] ${color} transition-all duration-500 hover:opacity-80`}
-            ></div>
-        ))}
-    </div>
+    <>
+        <style>{`
+            @keyframes grow-up {
+                from { transform: scaleY(0); }
+                to { transform: scaleY(1); }
+            }
+            .animate-grow-up {
+                animation: grow-up 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+        `}</style>
+        <div className={`flex items-end justify-between h-32 gap-[3px] mt-4 mb-6 ${className}`}>
+            {bars.map((height, i) => (
+                <div
+                    key={i}
+                    style={{
+                        height: `${height}%`,
+                        animationDelay: `${i * 30}ms`
+                    }}
+                    className={`flex-1 rounded-t-[2px] bg-gradient-to-t from-[#FF9900] to-[#ffc400] opacity-90 hover:opacity-100 hover:shadow-[0_0_15px_rgba(255,153,0,0.6)] transition-all duration-300 animate-grow-up origin-bottom`}
+                ></div>
+            ))}
+        </div>
+    </>
 );
 
 const Results: React.FC = () => {
@@ -77,9 +91,9 @@ const Results: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Chart */}
+                            {/* Chart - Hype Data */}
                             <AmazonBarChart
-                                bars={[20, 25, 22, 30, 35, 42, 45, 50, 60, 75, 90, 100, 95, 88]}
+                                bars={[10, 15, 12, 18, 25, 30, 45, 55, 65, 80, 85, 95, 100]}
                                 color="bg-[#FF9900]"
                             />
 
@@ -138,9 +152,9 @@ const Results: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Chart */}
+                            {/* Chart - Hype Data */}
                             <AmazonBarChart
-                                bars={[25, 26, 38, 40, 29, 45, 39, 47, 29, 32, 26, 25]}
+                                bars={[20, 25, 30, 45, 50, 60, 65, 80, 85, 90, 95, 100]}
                                 color="bg-[#E88B00]"
                             />
 
