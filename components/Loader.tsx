@@ -10,17 +10,11 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
         if (isLoading) {
             document.body.style.overflow = 'hidden';
             // Also prevent touchmove to stop pull-to-refresh or scroll on mobile
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
         } else {
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
         }
         return () => {
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
         };
     }, [isLoading]);
 

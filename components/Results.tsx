@@ -1,246 +1,191 @@
 import React from 'react';
+import { Menu, ScanLine, ChevronDown, ArrowRight, Globe } from 'lucide-react';
 
-// Helper for the bar chart visualization
-const AmazonBarChart: React.FC<{ bars: number[], color: string, className?: string }> = ({ bars, color, className = "" }) => (
-    <>
-        <style>{`
-            @keyframes grow-up {
-                from { transform: scaleY(0); }
-                to { transform: scaleY(1); }
-            }
-            .animate-grow-up {
-                animation: grow-up 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            }
-        `}</style>
-        <div className={`flex items-end justify-between h-32 gap-[3px] mt-4 mb-6 ${className}`}>
-            {bars.map((height, i) => (
-                <div
-                    key={i}
-                    style={{
-                        height: `${height}%`,
-                        animationDelay: `${i * 30}ms`
-                    }}
-                    className={`flex-1 rounded-t-[2px] bg-gradient-to-t from-[#FF9900] to-[#ffc400] opacity-90 hover:opacity-100 hover:shadow-[0_0_15px_rgba(255,153,0,0.6)] transition-all duration-300 animate-grow-up origin-bottom`}
-                ></div>
-            ))}
+const AmazonSellerCard: React.FC<{
+    student: { name: string; image: string; time: string };
+    stats: {
+        todaySales: string;
+        todayUnits: string;
+        totalSales: string;
+        totalLabel: string;
+        growth: string;
+        periodLabel: string;
+        bars: number[];
+    };
+    footer?: boolean;
+}> = ({ student, stats, footer }) => {
+    return (
+        <div className="bg-white rounded-[20px] overflow-hidden shadow-2xl border border-gray-200 font-sans relative group hover:scale-[1.02] transition-transform duration-500">
+            {/* Amazon App Header */}
+            <div className="bg-white border-b border-gray-100 p-3 flex justify-between items-center shadow-sm relative z-20">
+                <div className="flex items-center gap-3">
+                    <Menu className="text-gray-500 w-6 h-6" strokeWidth={1.5} />
+                    <div className="flex items-center gap-1">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" className="w-5 h-3.5 shadow-sm object-cover" />
+                        <span className="text-xl font-bold text-gray-800 tracking-tight">amazon seller</span>
+                    </div>
+                </div>
+                <ScanLine className="text-gray-400 w-6 h-6" strokeWidth={1.5} />
+            </div>
+
+            {/* Top Stats Row */}
+            <div className="flex divide-x divide-gray-100 border-b border-gray-100 bg-gray-50/30">
+                <div className="flex-1 p-3 min-w-[100px]">
+                    <div className="flex items-baseline gap-1">
+                        <span className="text-xl font-bold text-gray-900">{stats.todaySales}</span>
+                        <span className="text-xs text-gray-500 font-medium">EUR</span>
+                    </div>
+                    <div className="text-[11px] text-[#007185] flex items-center gap-1 font-medium mt-0.5">
+                        Ventas hasta hoy <ArrowRight className="w-3 h-3" />
+                    </div>
+                </div>
+                <div className="flex-1 p-3 min-w-[100px]">
+                    <div className="flex items-baseline gap-1">
+                        <span className="text-xl font-bold text-gray-900">{stats.todayUnits}</span>
+                    </div>
+                    <div className="text-[11px] text-[#007185] flex items-center gap-1 font-medium mt-0.5">
+                        Unidades hasta hoy <ArrowRight className="w-3 h-3" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="p-5 pb-8 relative">
+                {/* Background Grid Lines */}
+                <div className="absolute inset-0 px-5 pt-32 pb-8 flex flex-col justify-between pointer-events-none opacity-20">
+                    <div className="w-full h-px bg-gray-300 border-t border-dashed border-gray-400"></div>
+                    <div className="w-full h-px bg-gray-300 border-t border-dashed border-gray-400"></div>
+                    <div className="w-full h-px bg-gray-300 border-t border-dashed border-gray-400"></div>
+                    <div className="w-full h-px bg-gray-300 border-t border-dashed border-gray-400"></div>
+                </div>
+
+                <div className="flex justify-between items-center mb-1">
+                    <span className="text-lg font-bold text-gray-800 flex items-center gap-1">
+                        Ventas de prod... <ChevronDown className="w-5 h-5 text-gray-400" />
+                    </span>
+                </div>
+                <div className="flex justify-between items-center mb-6">
+                    <span className="text-sm text-gray-500 font-bold flex items-center gap-1">
+                        {stats.totalLabel} <ChevronDown className="w-4 h-4 text-gray-400" />
+                    </span>
+                </div>
+
+                <div className="mb-8 relative z-10">
+                    <div className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-none mb-2">
+                        {stats.totalSales} <span className="text-xl text-gray-500 font-bold">EUR</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="text-[#008a00] font-bold text-sm bg-[#008a00]/5 px-1.5 py-0.5 rounded">{stats.growth}</span>
+                        <span className="text-gray-400 text-xs font-bold uppercase">{stats.periodLabel}</span>
+                    </div>
+                </div>
+
+                {/* Chart - Precise CSS Bars */}
+                <div className="h-40 flex items-end justify-between gap-[2px] relative z-20 pl-2">
+                    <style>{`
+                        @keyframes grow-up { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+                     `}</style>
+                    {stats.bars.map((h, i) => (
+                        <div key={i} className="flex flex-col items-center gap-1 flex-1 h-full justify-end group/bar">
+                            <div
+                                style={{
+                                    height: `${h}%`,
+                                    animation: `grow-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+                                    animationDelay: `${i * 30}ms`,
+                                    transformOrigin: 'bottom'
+                                }}
+                                className="w-full bg-[#FF9900] rounded-t-[2px] shadow-[0_0_10px_rgba(255,153,0,0.0)] group-hover/bar:bg-[#ffad33] transition-all relative"
+                            >
+                                {/* Tooltip */}
+                                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                                    {h}%
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Footer / Global Sales */}
+            {footer && (
+                <div className="bg-white border-t border-gray-100 p-4 flex justify-between items-center">
+                    <div>
+                        <p className="text-gray-500 text-xs font-bold mb-0.5">Ventas globales hoy</p>
+                        <p className="text-xl font-bold text-gray-900">{stats.todaySales} <span className="text-sm text-gray-500">EUR</span></p>
+                    </div>
+                    <div className="text-[#007185] flex items-center gap-1 text-sm font-bold cursor-pointer hover:underline">
+                        <Globe className="w-4 h-4" />
+                        Ver panel
+                    </div>
+                </div>
+            )}
+
+            {/* Floating Student Badge */}
+            <div className="absolute top-16 right-4 flex items-center gap-2 bg-gray-900/90 backdrop-blur text-white text-xs pl-1 pr-3 py-1 rounded-full shadow-lg border border-white/10 z-30 transform translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+                <img src={student.image} className="w-6 h-6 rounded-full border border-white/20" alt={student.name} />
+                <div className="flex flex-col leading-none">
+                    <span className="font-bold">{student.name}</span>
+                    <span className="text-[9px] text-gray-400">{student.time}</span>
+                </div>
+            </div>
         </div>
-    </>
-);
+    );
+};
 
 const Results: React.FC = () => {
     return (
         <section className="py-24 bg-bg-dark border-y border-white/5 relative z-10 overflow-hidden">
-            {/* Background decoration */}
-
-
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter font-heading text-white">
-                        RESULTADOS DE <span className="text-amazon italic">ALUMNOS</span>
+                        RESULTADOS DE <span className="text-amazon italic text-[#FF9900]">ALUMNOS</span>
                     </h2>
-
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-7xl">
 
-                    {/* Card 1: Student - Cristian M. (Image 3 Ref) */}
-                    <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
+                    {/* Card 1: Cristian (Image 3) */}
+                    <AmazonSellerCard
+                        student={{ name: "Cristian M.", image: "/carlos.png", time: "12º Mes" }}
+                        stats={{
+                            todaySales: "1.298",
+                            todayUnits: "29",
+                            totalSales: "282,4 mil",
+                            totalLabel: "Año hasta la fecha",
+                            growth: "160% ↑",
+                            periodLabel: "Año pasado",
+                            bars: [15, 20, 18, 25, 30, 45, 55, 65, 75, 80, 90, 95, 100]
+                        }}
+                    />
 
-                        {/* Student Header */}
-                        <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="relative">
-                                    <img src="/carlos.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
-                                    <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 text-sm leading-tight">Cristian M.</p>
-                                    <p className="text-[10px] text-gray-500 font-medium">Alumno: 12º Mes</p>
-                                </div>
-                            </div>
-                            <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
-                                <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                                Verificado
-                            </span>
-                        </div>
+                    {/* Card 2: Sofia (Image 2) */}
+                    <AmazonSellerCard
+                        student={{ name: "Sofía L.", image: "/sofia.png", time: "8º Mes" }}
+                        stats={{
+                            todaySales: "560",
+                            todayUnits: "47",
+                            totalSales: "402,0 K",
+                            totalLabel: "Últimos 12 meses",
+                            growth: "+4% ↑",
+                            periodLabel: "Período anterior",
+                            bars: [25, 28, 40, 45, 30, 50, 45, 55, 30, 35, 28, 26]
+                        }}
+                    />
 
-                        <div className="p-4">
-                            {/* Status */}
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full">
-                                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                                    <span className="text-green-700 font-bold text-xs">Marca Privada</span>
-                                </div>
-                                <div className="flex gap-1 opacity-30">
-                                    <span className="w-1 h-1 bg-black rounded-full"></span>
-                                    <span className="w-1 h-1 bg-black rounded-full"></span>
-                                </div>
-                            </div>
-
-                            {/* Metrics */}
-                            <div className="flex justify-between items-end mb-2">
-                                <div>
-                                    <div className="text-xs text-gray-500 font-medium mb-1">Año hasta la fecha</div>
-                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">282.400 <span className="text-xl">EUR</span></h3>
-                                </div>
-                                <div className="text-right">
-                                    <div className="flex items-center justify-end text-green-600 font-bold text-sm mb-1">
-                                        <span>+160%</span>
-                                    </div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Crecimiento</p>
-                                </div>
-                            </div>
-
-                            {/* Chart - Hype Data */}
-                            <AmazonBarChart
-                                bars={[10, 15, 12, 18, 25, 30, 45, 55, 65, 80, 85, 95, 100]}
-                                color="bg-[#FF9900]"
-                            />
-
-                            {/* Grid Stats */}
-                            <div className="grid grid-cols-2 gap-px bg-gray-200 rounded-lg overflow-hidden border border-gray-200">
-                                <div className="bg-white p-3">
-                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Hoy</p>
-                                    <p className="font-black text-gray-900 text-lg">1.298 €</p>
-                                </div>
-                                <div className="bg-white p-3">
-                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Margen</p>
-                                    <p className="font-black text-gray-900 text-lg">28%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Card 2: Student - Sofia L. (Image 2 Ref - 402k) */}
-                    <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
-
-                        {/* Student Header */}
-                        <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="relative">
-                                    <img src="/sofia.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
-                                    <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 text-sm leading-tight">Sofía L.</p>
-                                    <p className="text-[10px] text-gray-500 font-medium">Alumna: 8º Mes</p>
-                                </div>
-                            </div>
-                            <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
-                                <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                                Verificado
-                            </span>
-                        </div>
-
-                        {/* Metrics */}
-                        <div className="p-4 pt-2">
-                            <div className="flex justify-between items-center border-b border-gray-100 pb-2 mb-4">
-                                <span className="text-xs font-bold text-gray-400">Escalando Producto</span>
-                                <span className="text-xs font-bold text-gray-600">amazon seller</span>
-                            </div>
-
-                            <div className="flex justify-between items-end mb-2">
-                                <div>
-                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">402.000 <span className="text-xl">EUR</span></h3>
-                                    <div className="text-xs text-gray-500 font-bold mt-1 uppercase tracking-wide">Últimos 12 meses</div>
-                                </div>
-                                <div className="text-right">
-                                    <div className="inline-flex items-center bg-green-100 text-green-700 px-2 py-0.5 rounded text-sm font-bold">
-                                        <span>+128%</span>
-                                        <svg className="w-3 h-3 ml-1 fill-current" viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z" /></svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Chart - Hype Data */}
-                            <AmazonBarChart
-                                bars={[20, 25, 30, 45, 50, 60, 65, 80, 85, 90, 95, 100]}
-                                color="bg-[#E88B00]"
-                            />
-
-                            {/* Grid Stats */}
-                            <div className="bg-white border-t border-gray-100 pt-4 grid grid-cols-2 gap-4">
-                                <div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Facturación Total</p>
-                                    <p className="font-black text-gray-900 text-xl">400k+</p>
-                                </div>
-                                <div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Pedidos Activos</p>
-                                    <p className="font-black text-gray-900 text-xl">154</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Telegram overlay effect */}
-                        <div className="absolute top-16 right-4 opacity-5 pointer-events-none">
-                            <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-2.02-1.35-2.92-1.96-.9-.63-.32-.98.2-.1.52.52 1.48 1.43 2.05 1.95.83.75 1.59 1.44 2.37 2.15.2.18.57.54.57.85 0 .17-.05.34-.14.49-.25.41-1.03.65-1.55.77-1.12.26-2.58.39-3.79.39-3.56 0-6.18-1.53-6.18-4.7 0-3.13 2.25-5.26 6.07-5.26 3.12 0 5.3 1.96 5.3 4.6 0 2.53-1.6 4.39-4.25 4.39-1.25 0-2.28-.66-2.65-1.42-.1-.2-.23-.29-.44-.29-.3 0-.52.27-.47.6.14 1.12.7 2.65 1.45 3.32.48.43 1.15.68 1.83.68 2.38 0 4.15-1.85 4.15-4.45 0-3.23-2.65-5.75-6.55-5.75-3.68 0-6.4 2.76-6.4 6.4 0 1.25.35 2.45.95 3.5.15.25.1.55-.1.75-.2.2-.55.25-.8.1C4.45 15.65 4 13.9 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 .28-.02.55-.05.82z" /></svg>
-                        </div>
-                    </div>
-
-                    {/* Card 3: Student - Javier R. (Image 0 Ref - 188.5k) - CONVERTED TO WHITE */}
-                    <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
-
-                        {/* Student Header */}
-                        <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="relative">
-                                    <img src="/javier.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
-                                    <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 text-sm leading-tight">Javier R.</p>
-                                    <p className="text-[10px] text-gray-500 font-medium">Alumno: 18º Mes</p>
-                                </div>
-                            </div>
-                            <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
-                                <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                                Verificado
-                            </span>
-                        </div>
-
-                        <div className="p-4">
-                            {/* Status */}
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full">
-                                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                                    <span className="text-green-700 font-bold text-xs">Ventas Globales</span>
-                                </div>
-                                <div className="text-gray-400 text-xs">Actualizado 2:20 PM</div>
-                            </div>
-
-                            {/* Metrics */}
-                            <div className="flex justify-between items-end mb-2">
-                                <div>
-                                    <div className="text-xs text-gray-500 font-medium mb-1">Últimos 12 meses</div>
-                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">188.500 <span className="text-xl">EUR</span></h3>
-                                </div>
-                                <div className="text-right">
-                                    <div className="flex items-center justify-end text-green-600 font-bold text-sm mb-1">
-                                        <span>+82%</span>
-                                    </div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Período anterior</p>
-                                </div>
-                            </div>
-
-                            {/* Chart */}
-                            <AmazonBarChart
-                                bars={[17, 16, 18, 14, 19, 13, 15, 11, 10, 13, 12, 22, 11]}
-                                color="bg-[#FF9900]"
-                            />
-
-                            {/* Grid Stats */}
-                            <div className="grid grid-cols-2 gap-px bg-gray-200 rounded-lg overflow-hidden border border-gray-200">
-                                <div className="bg-white p-3">
-                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Ventas Hoy</p>
-                                    <p className="font-black text-gray-900 text-lg">144 €</p>
-                                </div>
-                                <div className="bg-white p-3">
-                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Unidades</p>
-                                    <p className="font-black text-gray-900 text-lg">7</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Card 3: Javier (Image 0) */}
+                    <AmazonSellerCard
+                        student={{ name: "Javier R.", image: "/javier.png", time: "18º Mes" }}
+                        stats={{
+                            todaySales: "144",
+                            todayUnits: "7",
+                            totalSales: "188,5 mil",
+                            totalLabel: "Últimos 12 meses",
+                            growth: "82% ↑",
+                            periodLabel: "Período anterior",
+                            bars: [30, 28, 35, 25, 38, 20, 40, 18, 15, 25, 20, 45, 18]
+                        }}
+                        footer={true}
+                    />
 
                 </div>
             </div>
