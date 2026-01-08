@@ -198,7 +198,7 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-16 lg:py-24 px-6 overflow-hidden min-h-[700px] flex items-center bg-gradient-to-b from-bg-dark via-[#080a0f] to-black">
+        <section ref={sectionRef} className="relative py-8 lg:py-24 px-6 overflow-hidden min-h-[700px] flex items-center bg-gradient-to-b from-bg-dark via-[#080a0f] to-black">
             <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#7C3AED]/5 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EC4899]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -213,7 +213,7 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                     {/* LEFT CONTENT */}
                     <div className={`w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
 
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm shadow-inner">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-3 lg:mb-6 backdrop-blur-sm shadow-inner">
                             <span className="flex h-2.5 w-2.5 relative">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF9900]"></span>
