@@ -8,11 +8,13 @@ import Hero from './components/Hero';
 import Loader from './components/Loader';
 
 // Lazy load heavy components
-const Results = React.lazy(() => import('./components/Results'));
-const Benefits = React.lazy(() => import('./components/Benefits'));
-const Mentor = React.lazy(() => import('./components/Mentor'));
-const Closing = React.lazy(() => import('./components/Closing'));
-const Footer = React.lazy(() => import('./components/Footer'));
+import Results from './components/Results';
+import Benefits from './components/Benefits';
+import Mentor from './components/Mentor';
+import Closing from './components/Closing';
+import Footer from './components/Footer';
+
+// Keep these as lazy for modals/subpages
 const LeadFormModal = React.lazy(() => import('./components/LeadFormModal'));
 const WarningModal = React.lazy(() => import('./components/WarningModal'));
 const VideoPage = React.lazy(() => import('./components/VideoPage'));
@@ -45,12 +47,16 @@ function App() {
       }
     });
 
+    const isReturningUser = localStorage.getItem('has_visited_before');
+    const minTime = isReturningUser ? 800 : 2500; // Accelerated for returning users
+
     const minimumDisplayTime = new Promise<void>((resolve) => {
-      setTimeout(() => resolve(), 2500); // 2.5 seconds min
+      setTimeout(() => resolve(), minTime);
     });
 
     Promise.all([waitForPageLoad, minimumDisplayTime]).then(() => {
       setIsLoading(false);
+      localStorage.setItem('has_visited_before', 'true');
     });
   }, []);
 
