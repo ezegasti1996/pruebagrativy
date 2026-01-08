@@ -192,7 +192,6 @@ const Results: React.FC = () => {
                             periodLabel: "Período anterior",
                             bars: [15, 18, 14, 20, 18, 25, 22, 35, 45, 60, 75, 85, 90]
                         }}
-                        footer={true}
                     />
 
                 </div>
