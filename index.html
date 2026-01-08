@@ -147,8 +147,9 @@
   <style>
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      will-change: opacity, transform;
     }
 
     .animate-on-scroll.visible {
@@ -162,9 +163,13 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, {
+        threshold: 0.0,
+        rootMargin: '0px 0px 400px 0px' // Trigger 400px before entering viewport
+      });
 
       // Observe all elements with the class 'animate-on-scroll'
       // We will need to manually add this class to elements in React
