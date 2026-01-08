@@ -108,8 +108,6 @@ const AmazonSellerCard: React.FC<{
                 </div>
             </div>
 
-
-
             {/* Floating Student Badge */}
             <div className="absolute top-14 right-4 flex items-center gap-2 bg-gray-900/90 backdrop-blur text-white text-[10px] pl-1 pr-2.5 py-1 rounded-full shadow-lg border border-white/10 z-30">
                 <img src={student.image} className="w-5 h-5 rounded-full border border-white/20" alt={student.name} loading="eager" decoding="async" />
