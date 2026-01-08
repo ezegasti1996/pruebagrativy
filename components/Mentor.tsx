@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Maximize2, UserCheck, TrendingUp } from 'lucide-react';
 
 const SalesCounter: React.FC = () => {
-    const [count, setCount] = useState(12);
+    const countRef = React.useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         const end = 213;
@@ -16,7 +16,9 @@ const SalesCounter: React.FC = () => {
             const ease = 1 - Math.pow(1 - progress, 4); // Ease out quart
 
             const current = Math.floor(12 + (end - 12) * ease);
-            setCount(current);
+            if (countRef.current) {
+                countRef.current.innerText = current.toString();
+            }
 
             if (progress < 1) {
                 animationFrameId = requestAnimationFrame(update);
@@ -27,7 +29,7 @@ const SalesCounter: React.FC = () => {
         return () => cancelAnimationFrame(animationFrameId);
     }, []);
 
-    return <span className="text-white text-sm ml-1">{count}</span>;
+    return <span ref={countRef} className="text-white text-sm ml-1">12</span>;
 };
 
 const Mentor: React.FC = () => {
@@ -51,6 +53,7 @@ const Mentor: React.FC = () => {
                                         src="/emi-pool.jpg"
                                         alt="Emi de la Sierra"
                                         className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                                        loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                                 </div>

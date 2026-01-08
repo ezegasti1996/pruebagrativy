@@ -1,27 +1,20 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 
 interface LoaderProps {
     isLoading: boolean;
 }
 
 const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
+    // Note: Scroll locking logic is now in App.tsx as requested.
 
-    React.useEffect(() => {
-        if (isLoading) {
-            document.body.style.overflow = 'hidden';
-            // Also prevent touchmove to stop pull-to-refresh or scroll on mobile
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isLoading]);
-
-    return (
+    // Use Portal to ensure fixed position is relative to viewport, ignoring parent transforms
+    return createPortal(
         <div
-            className={`fixed inset-0 z-[100] bg-[#05070A] flex flex-col items-center justify-center transition-opacity duration-1000 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            id="loader-overlay"
+            className={`fixed inset-0 z-[9999999] bg-[#05070A] flex flex-col items-center justify-center transition-opacity duration-1000 ${isLoading ? 'opacity-100 touch-none pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
+
         >
             <div className="flex flex-col items-center">
                 {/* Logo & Orbits Container */}
@@ -62,7 +55,8 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
           animation: loading-bar 4s ease-out forwards;
         }
       `}</style>
-        </div>
+        </div>,
+        document.body
     );
 };
 
