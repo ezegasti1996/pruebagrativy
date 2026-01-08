@@ -39,3 +39,42 @@ body {
   width: 100% !important;
   touch-action: none !important;
 }
+
+/* PERFORMANCE: WILL-CHANGE for smooth GPU layers */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* MOBILE OPTIMIZATIONS (GPU Saving) */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: none !important;
+    background: rgba(20, 22, 26, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+  }
+
+  /* Simplify Shadows */
+  .shadow-2xl,
+  .shadow-xl,
+  .shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Disable expensive floating animations if they lag */
+  .animate-float-slow,
+  .animate-float-medium {
+    animation-duration: 10s !important;
+    /* Slow down to reduce calculation load */
+  }
+
+  /* Core layout visibility optimization */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+  }
+}

@@ -174,6 +174,7 @@ const Benefits: React.FC = () => {
                                     alt="World Map"
                                     className="w-[180%] max-w-none h-full object-cover object-center filter invert brightness-50 sepia-[1] hue-rotate-[180deg] saturate-[200%]"
                                     loading="eager"
+                                    decoding="async"
                                 />
                             </div>
 

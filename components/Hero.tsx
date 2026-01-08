@@ -17,56 +17,31 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         if (entries[0].isIntersecting && !hasCounted.current) {
           hasCounted.current = true;
 
-          const duration = 8000; // Optimized duration
+          const duration = 2500; // Faster and smoother for mobile
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsedTime = currentTime - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
 
-            // Split into Fast and Slow phases for "HYPE" feel
-            const threshold = 0.2;
+            // Simpler quadratic ease out
+            const ease = 1 - Math.pow(1 - progress, 2);
 
-            // Student Counter Logic
-            let currentStudentVal;
-            if (progress < threshold) {
-              const p = progress / threshold;
-              const ease = 1 - Math.pow(1 - p, 3);
-              currentStudentVal = Math.floor(345 + (850 - 345) * ease);
-            } else {
-              const p = (progress - threshold) / (1 - threshold);
-              const ease = 1 - Math.pow(1 - p, 2);
-              currentStudentVal = Math.floor(850 + (1000 - 850) * ease);
-            }
+            // Student Counter
+            const currentStudentVal = Math.floor(345 + (1000 - 345) * ease);
             if (studentCountRef.current) {
               studentCountRef.current.innerText = `+${currentStudentVal}`;
             }
 
-            // Sales Counter Logic
-            let currentSalesVal;
-            if (progress < threshold) {
-              const p = progress / threshold;
-              const ease = 1 - Math.pow(1 - p, 3);
-              currentSalesVal = 74454 + (99998 - 74454) * ease;
-            } else {
-              const p = (progress - threshold) / (1 - threshold);
-              const ease = 1 - Math.pow(1 - p, 2);
-              currentSalesVal = 99998 + (104458 - 99998) * ease;
-            }
+            // Sales Counter
+            const currentSalesVal = 74454 + (104458 - 74454) * ease;
             if (salesCountRef.current) {
               salesCountRef.current.innerText = `$${currentSalesVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             }
 
-            // Progress Bar Animation (Direct Style Update)
-            if (counterContainerRef.current) {
-              // We can't easily reach the specific child via ref here without drilling, 
-              // but avoiding React render is priority.
-              // For now, we rely on CSS transition triggered when we adding a class or similar?
-              // Actually the original code used 'hasCounted' state to trigger width change.
-              // We can simulate this by finding the bar.
-              const bar = document.getElementById('progress-bar-sales');
-              if (bar) bar.style.width = '82%';
-            }
+            // Progress Bar
+            const bar = document.getElementById('progress-bar-sales');
+            if (bar) bar.style.width = `${82 * ease}%`;
 
             if (progress < 1) requestAnimationFrame(animate);
           };
@@ -74,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     if (counterContainerRef.current) observer.observe(counterContainerRef.current);
