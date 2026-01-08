@@ -60,23 +60,22 @@ body {
     box-shadow: none !important;
   }
 
-  /* Aggressively disable animations on mobile */
-  [class*="animate-"],
+  /* Aggressively disable ONLY entrance animations on mobile */
   .animate-fade-up,
-  .animate-float-slow,
-  .animate-float-medium,
-  .animate-pulse-slow,
-  .animate-badge-move,
-  .animate-scan-vertical,
-  .animate-scan-radar,
-  .animate-truck-travel,
-  .animate-slide-right {
+  .animate-on-scroll,
+  [class*="fade-in"],
+  [class*="zoom-in"],
+  [class*="slide-in"] {
     animation: none !important;
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
-    /* Force visibility for items that fade in */
+    /* Force visibility */
   }
+
+  /* Restore subtle floats but maybe slower/simpler if needed, 
+     but user specifically asked to REVERT so we enable them */
+  /* .animate-float-slow, .animate-float-medium were here but removed to restore them */
 
   /* Simplify Shadows */
   .shadow-2xl,
