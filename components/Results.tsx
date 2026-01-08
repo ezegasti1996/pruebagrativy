@@ -14,8 +14,7 @@ const AmazonSellerCard: React.FC<{
         periodLabel: string;
         bars: number[];
     };
-    footer?: boolean;
-}> = ({ student, country, currency, stats, footer }) => {
+}> = ({ student, country, currency, stats }) => {
 
     const flagUrl = country === 'ES'
         ? "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
@@ -109,19 +108,7 @@ const AmazonSellerCard: React.FC<{
                 </div>
             </div>
 
-            {/* Footer / Global Sales */}
-            {footer && (
-                <div className="bg-white border-t border-gray-100 p-3 flex justify-between items-center">
-                    <div>
-                        <p className="text-gray-500 text-[10px] font-bold mb-0.5">Ventas globales hoy</p>
-                        <p className="text-lg font-bold text-gray-900">{stats.todaySales} <span className="text-xs text-gray-500">{currency}</span></p>
-                    </div>
-                    <div className="text-[#007185] flex items-center gap-1 text-xs font-bold cursor-pointer hover:underline">
-                        <Globe className="w-3.5 h-3.5" />
-                        Ver panel
-                    </div>
-                </div>
-            )}
+
 
             {/* Floating Student Badge */}
             <div className="absolute top-14 right-4 flex items-center gap-2 bg-gray-900/90 backdrop-blur text-white text-[10px] pl-1 pr-2.5 py-1 rounded-full shadow-lg border border-white/10 z-30">
