@@ -29,7 +29,7 @@ const Results: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
 
-                    {/* Card 1: Student - Carlos M. */}
+                    {/* Card 1: Student - Cristian M. (Image 3 Ref) */}
                     <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
 
                         {/* Student Header */}
@@ -40,8 +40,8 @@ const Results: React.FC = () => {
                                     <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-800 text-sm leading-tight">Carlos M.</p>
-                                    <p className="text-[10px] text-gray-500 font-medium">Alumno: 2º Mes</p>
+                                    <p className="font-bold text-gray-800 text-sm leading-tight">Cristian M.</p>
+                                    <p className="text-[10px] text-gray-500 font-medium">Alumno: 12º Mes</p>
                                 </div>
                             </div>
                             <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
@@ -55,7 +55,7 @@ const Results: React.FC = () => {
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full">
                                     <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                                    <span className="text-green-700 font-bold text-xs">Tienda saludable</span>
+                                    <span className="text-green-700 font-bold text-xs">Marca Privada</span>
                                 </div>
                                 <div className="flex gap-1 opacity-30">
                                     <span className="w-1 h-1 bg-black rounded-full"></span>
@@ -66,20 +66,20 @@ const Results: React.FC = () => {
                             {/* Metrics */}
                             <div className="flex justify-between items-end mb-2">
                                 <div>
-                                    <div className="text-xs text-gray-500 font-medium mb-1">Ventas totales</div>
-                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">33.605 <span className="text-xl">EUR</span></h3>
+                                    <div className="text-xs text-gray-500 font-medium mb-1">Año hasta la fecha</div>
+                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">282.400 <span className="text-xl">EUR</span></h3>
                                 </div>
                                 <div className="text-right">
                                     <div className="flex items-center justify-end text-green-600 font-bold text-sm mb-1">
-                                        <span>+18%</span>
+                                        <span>+160%</span>
                                     </div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Primer Producto</p>
+                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Crecimiento</p>
                                 </div>
                             </div>
 
                             {/* Chart */}
                             <AmazonBarChart
-                                bars={[10, 15, 12, 18, 20, 15, 12, 10, 8, 12, 15, 20, 25, 30, 45, 60, 80, 70, 65, 50, 40]}
+                                bars={[20, 25, 22, 30, 35, 42, 45, 50, 60, 75, 90, 100, 95, 88]}
                                 color="bg-[#FF9900]"
                             />
 
@@ -87,17 +87,17 @@ const Results: React.FC = () => {
                             <div className="grid grid-cols-2 gap-px bg-gray-200 rounded-lg overflow-hidden border border-gray-200">
                                 <div className="bg-white p-3">
                                     <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Hoy</p>
-                                    <p className="font-black text-gray-900 text-lg">1.447,95 €</p>
+                                    <p className="font-black text-gray-900 text-lg">1.298 €</p>
                                 </div>
                                 <div className="bg-white p-3">
-                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Pedidos</p>
-                                    <p className="font-black text-gray-900 text-lg">42</p>
+                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Margen</p>
+                                    <p className="font-black text-gray-900 text-lg">28%</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Card 2: Student - Sofia L. */}
+                    {/* Card 2: Student - Sofia L. (Image 2 Ref - 402k) */}
                     <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
 
                         {/* Student Header */}
@@ -109,7 +109,7 @@ const Results: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="font-bold text-gray-800 text-sm leading-tight">Sofía L.</p>
-                                    <p className="text-[10px] text-gray-500 font-medium">Alumna: 4º Mes</p>
+                                    <p className="text-[10px] text-gray-500 font-medium">Alumna: 8º Mes</p>
                                 </div>
                             </div>
                             <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
@@ -127,12 +127,12 @@ const Results: React.FC = () => {
 
                             <div className="flex justify-between items-end mb-2">
                                 <div>
-                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">9.019 <span className="text-xl">EUR</span></h3>
-                                    <div className="text-xs text-gray-500 font-bold mt-1 uppercase tracking-wide">Ventas últimos 30 días</div>
+                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">402.000 <span className="text-xl">EUR</span></h3>
+                                    <div className="text-xs text-gray-500 font-bold mt-1 uppercase tracking-wide">Últimos 12 meses</div>
                                 </div>
                                 <div className="text-right">
                                     <div className="inline-flex items-center bg-green-100 text-green-700 px-2 py-0.5 rounded text-sm font-bold">
-                                        <span>+273%</span>
+                                        <span>+128%</span>
                                         <svg className="w-3 h-3 ml-1 fill-current" viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z" /></svg>
                                     </div>
                                 </div>
@@ -140,19 +140,19 @@ const Results: React.FC = () => {
 
                             {/* Chart */}
                             <AmazonBarChart
-                                bars={[20, 25, 40, 35, 30, 45, 60, 75, 80, 90, 85, 95, 100, 90, 60, 40, 30, 25, 20, 15]}
+                                bars={[25, 26, 38, 40, 29, 45, 39, 47, 29, 32, 26, 25]}
                                 color="bg-[#E88B00]"
                             />
 
                             {/* Grid Stats */}
                             <div className="bg-white border-t border-gray-100 pt-4 grid grid-cols-2 gap-4">
                                 <div>
-                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Ventas Globales</p>
-                                    <p className="font-black text-gray-900 text-xl">464,75 €</p>
+                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Facturación Total</p>
+                                    <p className="font-black text-gray-900 text-xl">400k+</p>
                                 </div>
                                 <div>
                                     <p className="text-gray-400 text-[10px] font-bold uppercase">Pedidos Activos</p>
-                                    <p className="font-black text-gray-900 text-xl">13</p>
+                                    <p className="font-black text-gray-900 text-xl">154</p>
                                 </div>
                             </div>
                         </div>
@@ -163,75 +163,66 @@ const Results: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Card 3: Student - Javier R. */}
-                    <div className="bg-[#1E1E1E] text-white rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-700">
+                    {/* Card 3: Student - Javier R. (Image 0 Ref - 188.5k) - CONVERTED TO WHITE */}
+                    <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
 
-                        {/* Student Header Dark */}
-                        <div className="bg-[#2A2A2A] px-4 py-3 rounded-t-[16px] border-b border-gray-600 flex items-center justify-between">
+                        {/* Student Header */}
+                        <div className="bg-gray-50 px-4 py-3 rounded-t-[16px] border-b border-gray-200 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
-                                    <img src="/javier.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-[#FF9900] shadow-sm" />
-                                    <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-[#1E1E1E]"></div>
+                                    <img src="/javier.png" alt="Alumno" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
+                                    <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></div>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-white text-sm leading-tight">Javier R.</p>
-                                    <p className="text-[10px] text-gray-400 font-medium">Alumno: 8º Mes</p>
+                                    <p className="font-bold text-gray-800 text-sm leading-tight">Javier R.</p>
+                                    <p className="text-[10px] text-gray-500 font-medium">Alumno: 18º Mes</p>
                                 </div>
                             </div>
-                            <span className="bg-[#FF9900]/20 text-[#FF9900] text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider border border-[#FF9900]/30 flex items-center gap-1">
+                            <span className="bg-blue-100 text-blue-700 text-[9px] font-black uppercase px-2 py-1 rounded-full tracking-wider flex items-center gap-1">
                                 <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
                                 Verificado
                             </span>
                         </div>
 
                         <div className="p-4">
-                            {/* Header */}
-                            <div className="flex justify-between items-center mb-6">
-                                <div className="flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                                    <span className="text-gray-300 font-bold text-xs">Tienda saludable</span>
+                            {/* Status */}
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full">
+                                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                                    <span className="text-green-700 font-bold text-xs">Ventas Globales</span>
                                 </div>
-                                <div className="text-gray-400 text-xs">Actualizado 9:05 PM</div>
+                                <div className="text-gray-400 text-xs">Actualizado 2:20 PM</div>
                             </div>
 
                             {/* Metrics */}
-                            <div className="mb-4">
-                                <div className="flex items-baseline gap-1">
-                                    <h3 className="text-4xl font-black text-white tracking-tight">25.550 <span className="text-xl text-gray-400">EUR</span></h3>
+                            <div className="flex justify-between items-end mb-2">
+                                <div>
+                                    <div className="text-xs text-gray-500 font-medium mb-1">Últimos 12 meses</div>
+                                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">188.500 <span className="text-xl">EUR</span></h3>
                                 </div>
-                                <p className="text-xs text-gray-400 mt-1">dic 1, 2024 hasta hoy</p>
+                                <div className="text-right">
+                                    <div className="flex items-center justify-end text-green-600 font-bold text-sm mb-1">
+                                        <span>+82%</span>
+                                    </div>
+                                    <p className="text-gray-400 text-[10px] font-bold uppercase">Período anterior</p>
+                                </div>
                             </div>
 
                             {/* Chart */}
-                            <div className="h-32 flex items-end justify-between gap-1 mb-6 border-b border-gray-700 pb-4">
-                                {[15, 20, 18, 25, 30, 45, 80, 95, 85, 70, 60, 100].map((h, i) => (
-                                    <div key={i} className="flex flex-col items-center gap-1 w-full h-full justify-end">
-                                        <div style={{ height: `${h}%` }} className="w-full bg-[#FF9900] rounded-t-[2px] opacity-90 hover:opacity-100 transition-opacity"></div>
-                                    </div>
-                                ))}
-                            </div>
+                            <AmazonBarChart
+                                bars={[17, 16, 18, 14, 19, 13, 15, 11, 10, 13, 12, 22, 11]}
+                                color="bg-[#FF9900]"
+                            />
 
-                            {/* List Stats */}
-                            <div className="space-y-4">
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <p className="text-xl font-bold text-white">342,05 €</p>
-                                        <p className="text-[10px] text-gray-500">Ventas hoy</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="text-xl font-bold text-white">29</p>
-                                        <p className="text-[10px] text-gray-500">Unidades</p>
-                                    </div>
+                            {/* Grid Stats */}
+                            <div className="grid grid-cols-2 gap-px bg-gray-200 rounded-lg overflow-hidden border border-gray-200">
+                                <div className="bg-white p-3">
+                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Ventas Hoy</p>
+                                    <p className="font-black text-gray-900 text-lg">144 €</p>
                                 </div>
-                                <div className="flex justify-between items-center border-t border-gray-800 pt-3">
-                                    <div>
-                                        <p className="text-xl font-bold text-white">44</p>
-                                        <p className="text-[10px] text-gray-500">Pedidos activos</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="flex text-[#FF9900] text-xs">★★★★★</div>
-                                        <p className="text-[10px] text-gray-500">Opinión vendedor</p>
-                                    </div>
+                                <div className="bg-white p-3">
+                                    <p className="text-gray-500 text-[10px] font-bold uppercase mb-1">Unidades</p>
+                                    <p className="font-black text-gray-900 text-lg">7</p>
                                 </div>
                             </div>
                         </div>
