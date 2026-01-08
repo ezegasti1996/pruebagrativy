@@ -17,7 +17,7 @@ const Results: React.FC = () => {
     return (
         <section className="py-24 bg-bg-dark border-y border-white/5 relative z-10 overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">

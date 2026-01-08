@@ -63,13 +63,13 @@ const FloatingBackground: React.FC = () => {
 
       <div className="absolute inset-0 w-full h-full transform-gpu">
         {/* Top Right Purple Glow - Static on mobile, Pulse on desktop */}
-        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/15 blur-[80px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/15 blur-[80px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDuration: '8s' }}></div>
 
         {/* Middle Left Amazon Orange Glow */}
-        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/10 blur-[90px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/10 blur-[90px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
 
         {/* Bottom Pink Glow */}
-        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
+        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
 
         {/* Giant Watermark */}
         <div className="absolute top-[15%] right-[-15%] w-[80%] opacity-[0.02] rotate-[-15deg] pointer-events-none z-0">
@@ -80,7 +80,7 @@ const FloatingBackground: React.FC = () => {
           />
         </div>
 
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay hidden md:block"></div>
       </div>
 
       {/* Parallax Items (Optimized: Hidden on small screens to save GPU) */}

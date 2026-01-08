@@ -199,8 +199,8 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
 
     return (
         <section ref={sectionRef} className="relative py-2 lg:py-24 px-6 overflow-hidden min-h-[500px] lg:min-h-[700px] flex items-center bg-transparent">
-            <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#7C3AED]/5 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EC4899]/5 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="hidden lg:block absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#7C3AED]/5 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="hidden lg:block absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EC4899]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
             <FloatingEmoji emoji="💰" className="top-[5%] left-[5%] rotate-[-15deg]" delay="0s" />
             <FloatingEmoji emoji="📦" className="bottom-[10%] left-[40%] rotate-[10deg]" delay="1s" />

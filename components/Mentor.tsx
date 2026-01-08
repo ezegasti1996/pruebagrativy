@@ -10,7 +10,9 @@ const Mentor: React.FC = () => {
         const duration = 2500;
         const startTime = Date.now();
 
-        const timer = setInterval(() => {
+        let animationFrameId: number;
+
+        const update = () => {
             const now = Date.now();
             const progress = Math.min((now - startTime) / duration, 1);
             // Ease out quart
@@ -19,10 +21,14 @@ const Mentor: React.FC = () => {
             const current = Math.floor(12 + (end - 12) * ease);
             setSalesCount(current);
 
-            if (progress === 1) clearInterval(timer);
-        }, 16);
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(update);
+            }
+        };
 
-        return () => clearInterval(timer);
+        animationFrameId = requestAnimationFrame(update);
+
+        return () => cancelAnimationFrame(animationFrameId);
     }, []);
 
     return (
@@ -30,7 +36,7 @@ const Mentor: React.FC = () => {
             <div className="container mx-auto">
                 <div className={`group bg-gradient-to-r from-[#0F1115] to-[#05070A] rounded-[30px] md:rounded-[50px] border border-white/5 p-4 sm:p-6 md:p-12 lg:p-20 relative transition-all duration-700 ${isExpanded ? 'ring-2 ring-amazon/30 shadow-[0_0_80px_rgba(255,153,0,0.15)]' : 'hover:border-amazon/30'}`}>
 
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amazon/5 blur-[120px] rounded-full pointer-events-none transition-all duration-1000 group-hover:bg-amazon/10"></div>
+                    <div className="hidden md:block absolute top-0 right-0 w-[500px] h-[500px] bg-amazon/5 blur-[120px] rounded-full pointer-events-none transition-all duration-1000 group-hover:bg-amazon/10"></div>
 
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
