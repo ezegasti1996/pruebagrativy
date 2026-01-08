@@ -32,6 +32,7 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                         alt="Loading..."
                         className="w-20 h-20 object-contain brightness-0 invert animate-pulse relative z-10"
+                        fetchPriority="high"
                     />
                 </div>
 

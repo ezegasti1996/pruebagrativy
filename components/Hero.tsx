@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 "/hero_student_3.png"
               ].map((url, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#121212] bg-gray-800 overflow-hidden relative z-10 shadow-md">
-                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" />
+                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" />
                 </div>
               ))}
               <div className="w-10 h-10 rounded-full border-2 border-[#121212] bg-amazon text-black flex items-center justify-center relative z-20 text-[10px] font-black shadow-lg">
@@ -169,6 +169,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 src="/emi-hero.jpg"
                 alt="Mentor Emi de la Sierra"
                 className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105"
+                fetchPriority="high"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
             </div>

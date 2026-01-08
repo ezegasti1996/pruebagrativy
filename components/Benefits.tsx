@@ -47,7 +47,7 @@ const Benefits: React.FC = () => {
             {/* Background Elements - Optimized (Gradient instead of Blur) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(6,182,212,0.08)_0%,transparent_70%)] rounded-full pointer-events-none"></div>
 
-            <div className="text-center mb-12 md:mb-16 lg:mb-24 relative z-10 animate-on-scroll-target opacity-0 translate-y-8 transition-transform duration-700 ease-out will-change-transform">
+            <div className="text-center mb-12 md:mb-16 lg:mb-24 relative z-10">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tighter font-heading text-white">
                     TU NEGOCIO EN <br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] to-[#FFB84D]">PILOTO AUTOMÁTICO</span>
                 </h2>
@@ -56,7 +56,7 @@ const Benefits: React.FC = () => {
             <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
 
                 {/* Card 1: Product Intelligence (Cyan/Tech) */}
-                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden animate-on-scroll-target opacity-0 translate-y-8 transition-all duration-500 will-change-transform">
+                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
@@ -105,7 +105,7 @@ const Benefits: React.FC = () => {
                 </div>
 
                 {/* Card 2: Automated Logistics (FBA) */}
-                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden animate-on-scroll-target opacity-0 translate-y-8 transition-all duration-500 will-change-transform" style={{ transitionDelay: '100ms' }}>
+                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-[#FF9900]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
@@ -151,7 +151,7 @@ const Benefits: React.FC = () => {
                 </div>
 
                 {/* Card 3: Global Scaling (OPTIMIZED) */}
-                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden animate-on-scroll-target opacity-0 translate-y-8 transition-all duration-500 will-change-transform" style={{ transitionDelay: '200ms' }}>
+                <div className="group relative bg-[#0F1115] rounded-[30px] border border-white/5 p-1 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="bg-[#0A0C10] rounded-[28px] p-6 lg:p-8 h-full relative z-10 flex flex-col">
@@ -173,7 +173,7 @@ const Benefits: React.FC = () => {
                                     src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
                                     alt="World Map"
                                     className="w-[180%] max-w-none h-full object-cover object-center filter invert brightness-50 sepia-[1] hue-rotate-[180deg] saturate-[200%]"
-                                    loading="lazy"
+                                    loading="eager"
                                 />
                             </div>
 

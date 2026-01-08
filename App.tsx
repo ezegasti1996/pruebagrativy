@@ -46,7 +46,7 @@ function App() {
     });
 
     const minimumDisplayTime = new Promise<void>((resolve) => {
-      setTimeout(() => resolve(), 3000); // 3 seconds min
+      setTimeout(() => resolve(), 2500); // 2.5 seconds min
     });
 
     Promise.all([waitForPageLoad, minimumDisplayTime]).then(() => {
