@@ -175,7 +175,7 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
                     setIsVisible(true);
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0.0, rootMargin: '0px 0px 800px 0px' }
         );
 
         if (sectionRef.current) {

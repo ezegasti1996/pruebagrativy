@@ -451,7 +451,7 @@ const Benefits: React.FC = () => {
                 }
             });
         }, {
-            rootMargin: '0px 0px 400px 0px',
+            rootMargin: '0px 0px 600px 0px',
             threshold: 0.01
         });
         document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
