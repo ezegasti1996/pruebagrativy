@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fba-academy-v2';
+const CACHE_NAME = 'fba-academy-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -7,7 +7,10 @@ const ASSETS_TO_CACHE = [
     '/emi-hero.jpg',
     '/hero_student_1.png',
     '/hero_student_2.png',
-    '/hero_student_3.png'
+    '/hero_student_3.png',
+    '/result_cristian.png',
+    '/result_sofia.png',
+    '/result_javier.png'
 ];
 
 self.addEventListener('install', (event) => {
