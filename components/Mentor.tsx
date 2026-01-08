@@ -97,20 +97,20 @@ const Mentor: React.FC = () => {
                         </div>
 
                         {/* Text Side - Clean layout */}
-                        <div className="text-center lg:text-left">
+                        <div className="text-left">
                             <h2 className="text-4xl md:text-5xl font-black font-heading mb-8 leading-tight">
                                 APRENDE DE QUIEN <br />
                                 YA HA <span className="text-amazon inline-block underline decoration-amazon/30 decoration-4 underline-offset-4">VENDIDO.</span>
                             </h2>
 
-                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed px-4 lg:px-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30">
+                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed pl-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30">
                                 <p>
                                     <span className="text-white font-bold block mb-1">Soy Emi de la Sierra.</span>
                                     <span className="text-amazon font-bold bg-amazon/10 px-2 py-0.5 rounded border border-amazon/20 inline-block mt-2">+$25M USD</span> facturados. Más de 8 años vendiendo online, con libertad financiera absoluta.
                                 </p>
                             </div>
 
-                            <div className="mt-8 lg:mt-12 flex items-center justify-center lg:justify-start gap-6 p-4 lg:p-6 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-sm max-w-sm mx-auto lg:mx-0">
+                            <div className="mt-8 lg:mt-12 flex items-center justify-start gap-6 p-4 lg:p-6 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-sm">
                                 <div className="flex flex-col">
                                     <span className="text-3xl font-black text-white">4.9/5</span>
                                     <div className="flex text-amazon text-sm space-x-0.5">
