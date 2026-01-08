@@ -13,21 +13,21 @@ const Results: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-6xl">
                     <img
-                        src="/result_cristian.png"
+                        src="/result_cristian.webp"
                         alt="Resultado Cristian"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
                     />
                     <img
-                        src="/result_sofia.png"
+                        src="/result_sofia.webp"
                         alt="Resultado Sofia"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
                     />
                     <img
-                        src="/result_javier.png"
+                        src="/result_javier.webp"
                         alt="Resultado Javier"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"

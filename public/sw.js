@@ -1,16 +1,16 @@
-const CACHE_NAME = 'fba-academy-v5';
+const CACHE_NAME = 'fba-academy-v6';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/index.css',
     '/index.tsx',
-    '/emi-hero.jpg',
-    '/hero_student_1.png',
-    '/hero_student_2.png',
-    '/hero_student_3.png',
-    '/result_cristian.png',
-    '/result_sofia.png',
-    '/result_javier.png'
+    '/emi-hero.webp',
+    '/hero_student_1.webp',
+    '/hero_student_2.webp',
+    '/hero_student_3.webp',
+    '/result_cristian.webp',
+    '/result_sofia.webp',
+    '/result_javier.webp'
 ];
 
 self.addEventListener('install', (event) => {

@@ -55,9 +55,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="inline-flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/10 transition-colors cursor-default select-none" ref={counterRef}>
             <div className="flex -space-x-3">
               {[
-                "/hero_student_1.png",
-                "/hero_student_2.png",
-                "/hero_student_3.png"
+                "/hero_student_1.webp",
+                "/hero_student_2.webp",
+                "/hero_student_3.webp"
               ].map((url, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#121212] bg-gray-800 overflow-hidden relative z-10 shadow-md">
                   <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" decoding="async" />
@@ -98,7 +98,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             {/* Main Mentor Image */}
             <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] bg-[#0A0A0A] transform-gpu will-change-transform">
               <img
-                src="/emi-hero.jpg"
+                src="/emi-hero.webp"
+                srcSet="/emi-hero-mobile.webp 500w, /emi-hero.webp 1200w"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Mentor Emi de la Sierra"
                 className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105"
                 fetchPriority="high"

@@ -60,6 +60,24 @@ body {
     box-shadow: none !important;
   }
 
+  /* Aggressively disable animations on mobile */
+  [class*="animate-"],
+  .animate-fade-up,
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-pulse-slow,
+  .animate-badge-move,
+  .animate-scan-vertical,
+  .animate-scan-radar,
+  .animate-truck-travel,
+  .animate-slide-right {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    /* Force visibility for items that fade in */
+  }
+
   /* Simplify Shadows */
   .shadow-2xl,
   .shadow-xl,

@@ -50,7 +50,9 @@ const Mentor: React.FC = () => {
                                 {/* Main Image Card */}
                                 <div className="absolute inset-0 rounded-[24px] md:rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl z-10">
                                     <img
-                                        src="/emi-pool.jpg"
+                                        src="/emi-pool.webp"
+                                        srcSet="/emi-pool-mobile.webp 500w, /emi-pool.webp 1200w"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                         alt="Emi de la Sierra"
                                         className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                                         loading="lazy"
