@@ -102,6 +102,8 @@ const Mentor: React.FC = () => {
                                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                                         className="w-full h-full object-contain brightness-0 invert"
                                         alt="Amazon"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                             </div>

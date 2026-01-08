@@ -173,7 +173,7 @@ const Benefits: React.FC = () => {
                                     src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
                                     alt="World Map"
                                     className="w-[180%] max-w-none h-full object-cover object-center filter invert brightness-50 sepia-[1] hue-rotate-[180deg] saturate-[200%]"
-                                    loading="eager"
+                                    loading="lazy"
                                     decoding="async"
                                 />
                             </div>
