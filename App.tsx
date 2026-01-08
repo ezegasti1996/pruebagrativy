@@ -23,11 +23,25 @@ function App() {
   const [pathname, setPathname] = useState(window.location.pathname);
 
   useEffect(() => {
-    // Fake loading delay
-    const timer = setTimeout(() => {
+    // Smart Loading Strategy:
+    // 1. Wait for the page to be fully loaded (images, scripts, etc.)
+    // 2. Enforce a minimum display time so the animation plays out nicely (3s)
+
+    const waitForPageLoad = new Promise<void>((resolve) => {
+      if (document.readyState === 'complete') {
+        resolve();
+      } else {
+        window.addEventListener('load', () => resolve());
+      }
+    });
+
+    const minimumDisplayTime = new Promise<void>((resolve) => {
+      setTimeout(() => resolve(), 3000); // 3 seconds min duration
+    });
+
+    Promise.all([waitForPageLoad, minimumDisplayTime]).then(() => {
       setIsLoading(false);
-    }, 4000);
-    return () => clearTimeout(timer);
+    });
   }, []);
 
   useEffect(() => {
