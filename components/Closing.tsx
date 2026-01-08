@@ -198,7 +198,7 @@ const Closing: React.FC<ClosingProps> = ({ onOpenModal }) => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-8 lg:py-24 px-6 overflow-hidden min-h-[700px] flex items-center bg-gradient-to-b from-bg-dark via-[#080a0f] to-black">
+        <section ref={sectionRef} className="relative py-8 lg:py-24 px-6 overflow-hidden min-h-[700px] flex items-center bg-transparent">
             <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#7C3AED]/5 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EC4899]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
