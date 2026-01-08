@@ -154,10 +154,10 @@ const Results: React.FC = () => {
                         stats={{
                             todaySales: "1.298",
                             todayUnits: "29",
-                            totalSales: "282,4 mil",
-                            totalLabel: "Año hasta la fecha",
+                            totalSales: "282,4 K",
+                            totalLabel: "Últimos 12 meses",
                             growth: "+160% ↑",
-                            periodLabel: "Año pasado",
+                            periodLabel: "Período anterior",
                             bars: [15, 20, 18, 25, 30, 45, 55, 65, 75, 80, 90, 95, 100]
                         }}
                     />
@@ -174,7 +174,7 @@ const Results: React.FC = () => {
                             totalLabel: "Últimos 12 meses",
                             growth: "+128% ↑",
                             periodLabel: "Período anterior",
-                            bars: [25, 20, 15, 25, 30, 25, 40, 50, 60, 75, 85, 95]
+                            bars: [25, 20, 15, 25, 30, 25, 40, 50, 60, 75, 85, 95, 100]
                         }}
                     />
 
@@ -186,7 +186,7 @@ const Results: React.FC = () => {
                         stats={{
                             todaySales: "144",
                             todayUnits: "7",
-                            totalSales: "188,5 mil",
+                            totalSales: "188,5 K",
                             totalLabel: "Últimos 12 meses",
                             growth: "+82% ↑",
                             periodLabel: "Período anterior",
