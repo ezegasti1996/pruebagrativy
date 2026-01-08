@@ -67,17 +67,27 @@ function App() {
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
-  // Unlock Content on Scroll
+  // Unlock Content using IntersectionObserver (Top marker)
   useEffect(() => {
-    const handleScroll = () => {
-      const threshold = Math.min(window.innerHeight * 0.4, 400);
-      if (window.scrollY > threshold) {
+    const marker = document.createElement('div');
+    marker.style.position = 'absolute';
+    marker.style.top = '400px';
+    marker.style.height = '1px';
+    marker.style.width = '100%';
+    marker.style.pointerEvents = 'none';
+    document.body.appendChild(marker);
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting || entries[0].boundingClientRect.top < 0) {
         setIsUnlocked(true);
       }
+    }, { threshold: 0 });
+
+    observer.observe(marker);
+    return () => {
+      observer.disconnect();
+      marker.remove();
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Warning Modal Logic

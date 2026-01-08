@@ -1,60 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { PlayCircle, TrendingUp } from 'lucide-react';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
-  const studentCountRef = useRef<HTMLSpanElement>(null);
-  const salesCountRef = useRef<HTMLHeadingElement>(null);
-  const counterContainerRef = useRef<HTMLDivElement>(null);
-  const hasCounted = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasCounted.current) {
-          hasCounted.current = true;
-
-          const duration = 2500; // Faster and smoother for mobile
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsedTime = currentTime - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-
-            // Simpler quadratic ease out
-            const ease = 1 - Math.pow(1 - progress, 2);
-
-            // Student Counter
-            const currentStudentVal = Math.floor(345 + (1000 - 345) * ease);
-            if (studentCountRef.current) {
-              studentCountRef.current.innerText = `+${currentStudentVal}`;
-            }
-
-            // Sales Counter
-            const currentSalesVal = 74454 + (104458 - 74454) * ease;
-            if (salesCountRef.current) {
-              salesCountRef.current.innerText = `$${currentSalesVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            }
-
-            // Progress Bar
-            const bar = document.getElementById('progress-bar-sales');
-            if (bar) bar.style.width = `${82 * ease}%`;
-
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.05 }
-    );
-
-    if (counterContainerRef.current) observer.observe(counterContainerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref: counterRef, inView: counterInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-24 z-10 px-6 overflow-hidden">
@@ -95,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             </button>
           </div>
 
-          <div className="inline-flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/10 transition-colors cursor-default select-none" ref={counterContainerRef}>
+          <div className="inline-flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/10 transition-colors cursor-default select-none" ref={counterRef}>
             <div className="flex -space-x-3">
               {[
                 "/hero_student_1.png",
@@ -103,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 "/hero_student_3.png"
               ].map((url, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#121212] bg-gray-800 overflow-hidden relative z-10 shadow-md">
-                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" />
+                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" decoding="async" />
                 </div>
               ))}
               <div className="w-10 h-10 rounded-full border-2 border-[#121212] bg-amazon text-black flex items-center justify-center relative z-20 text-[10px] font-black shadow-lg">
@@ -113,8 +70,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span ref={studentCountRef} className="text-white font-black text-lg leading-none tabular-nums tracking-tight">
-                  +345
+                <span className="text-white font-black text-lg leading-none tabular-nums tracking-tight">
+                  <CountUp start={345} end={counterInView ? 1000 : 345} duration={2.5} prefix="+" />
                 </span>
               </div>
               <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none mt-1">
@@ -139,24 +96,32 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             </div>
 
             {/* Main Mentor Image */}
-            <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] bg-[#0A0A0A] transform-gpu">
+            <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] bg-[#0A0A0A] transform-gpu will-change-transform">
               <img
                 src="/emi-hero.jpg"
                 alt="Mentor Emi de la Sierra"
                 className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105"
                 fetchPriority="high"
                 loading="eager"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
             </div>
 
             {/* Weekly Sales Card */}
-            <div className="absolute -bottom-8 -left-4 md:-left-12 z-20 glass p-5 rounded-[24px] w-[260px] md:w-[310px] animate-float-medium shadow-[0_0_40px_rgba(255,153,0,0.15)] transform-gpu">
+            <div className="absolute -bottom-8 -left-4 md:-left-12 z-20 glass p-5 rounded-[24px] w-[260px] md:w-[310px] animate-float-medium shadow-[0_0_40px_rgba(255,153,0,0.15)] transform-gpu will-change-transform">
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">VENTAS SEMANALES</p>
-                  <h3 ref={salesCountRef} className="text-2xl md:text-3xl font-black font-heading tracking-tight tabular-nums text-white">
-                    $74,454.00
+                  <h3 className="text-2xl md:text-3xl font-black font-heading tracking-tight tabular-nums text-white">
+                    <CountUp
+                      start={74454}
+                      end={counterInView ? 104458 : 74454}
+                      duration={2.5}
+                      separator=","
+                      decimals={2}
+                      prefix="$"
+                    />
                   </h3>
                 </div>
                 <div className="bg-green-500/15 border border-green-500/30 text-green-400 text-[9px] px-2 py-1 rounded-lg font-black flex items-center gap-1 animate-pulse">
@@ -166,7 +131,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               </div>
               <div className="space-y-3">
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                  <div id="progress-bar-sales" className="h-full bg-amazon shadow-[0_0_20px_rgba(255,153,0,0.6)] rounded-full transition-all duration-[2000ms] ease-out w-0"></div>
+                  <div
+                    className="h-full bg-amazon shadow-[0_0_20px_rgba(255,153,0,0.6)] rounded-full transition-all duration-[2500ms] ease-out"
+                    style={{ width: counterInView ? '82%' : '0%' }}
+                  ></div>
                 </div>
                 <div className="flex justify-between text-[10px] font-black text-gray-500 uppercase tracking-tighter">
                   <span>MON</span>
@@ -182,6 +150,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                 alt="Amazon"
                 className="w-10 h-10 md:w-14 md:h-14 object-contain"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </div>

@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react-dom": "^19.2.3",
     "lucide-react": "^0.562.0",
-    "react": "^19.2.3"
+    "react": "^19.2.3",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.2.3",
+    "react-intersection-observer": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

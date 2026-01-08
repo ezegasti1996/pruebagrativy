@@ -53,7 +53,7 @@ body {
 @media (max-width: 768px) {
   .glass {
     backdrop-filter: none !important;
-    background: rgba(20, 22, 26, 0.95) !important;
+    background: rgba(20, 22, 26, 0.98) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
     box-shadow: none !important;
   }
@@ -61,15 +61,27 @@ body {
   /* Simplify Shadows */
   .shadow-2xl,
   .shadow-xl,
-  .shadow-lg {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  .shadow-lg,
+  .shadow-md {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
   }
 
-  /* Disable expensive floating animations if they lag */
+  /* Disable expensive floating and pulsate animations on mobile */
   .animate-float-slow,
-  .animate-float-medium {
-    animation-duration: 10s !important;
-    /* Slow down to reduce calculation load */
+  .animate-float-medium,
+  .animate-pulse-slow {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-pulse {
+    animation-duration: 4s !important;
+  }
+
+  /* Force hardware acceleration */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   /* Core layout visibility optimization */
@@ -77,4 +89,15 @@ body {
     content-visibility: auto;
     contain-intrinsic-size: 500px;
   }
+}
+
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+}
+
+h1,
+h2,
+h3,
+.group {
+  will-change: transform;
 }
