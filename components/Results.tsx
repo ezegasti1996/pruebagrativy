@@ -27,7 +27,7 @@ const Results: React.FC = () => {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto animate-on-scroll">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
 
                     {/* Card 1: Student - Carlos M. */}
                     <div className="bg-white text-gray-900 rounded-[20px] p-1 shadow-2xl font-sans relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border-4 border-gray-800">
