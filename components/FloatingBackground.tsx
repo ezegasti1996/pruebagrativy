@@ -5,6 +5,10 @@ const FloatingBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Performance optimization: Disable JS parallax effects on mobile/Android
+    // This significantly reduces main thread work during scroll
+    if (window.innerWidth < 768) return;
+
     let ticking = false;
     let lastScrollY = window.scrollY;
     let mouseX = 0;
@@ -29,7 +33,6 @@ const FloatingBackground: React.FC = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth < 768) return;
       mouseX = (window.innerWidth / 2 - e.clientX) * 0.05;
       mouseY = (window.innerHeight / 2 - e.clientY) * 0.05;
       if (!ticking) {
@@ -58,15 +61,15 @@ const FloatingBackground: React.FC = () => {
   return (
     <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#05070A]">
 
-      <div className="absolute inset-0 w-full h-full">
-        {/* Top Right Purple Glow */}
-        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/15 blur-[80px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }}></div>
+      <div className="absolute inset-0 w-full h-full transform-gpu">
+        {/* Top Right Purple Glow - Static on mobile, Pulse on desktop */}
+        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/15 blur-[80px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDuration: '8s' }}></div>
 
         {/* Middle Left Amazon Orange Glow */}
-        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/10 blur-[90px] rounded-full mix-blend-screen animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/10 blur-[90px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
 
         {/* Bottom Pink Glow */}
-        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full mix-blend-screen animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
+        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full mix-blend-screen md:animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
 
         {/* Giant Watermark */}
         <div className="absolute top-[15%] right-[-15%] w-[80%] opacity-[0.02] rotate-[-15deg] pointer-events-none z-0">
@@ -80,35 +83,34 @@ const FloatingBackground: React.FC = () => {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
       </div>
 
-      {/* Parallax Items (Optimized for performance) */}
-      <div className="parallax-item absolute top-[12%] left-[60%] opacity-[0.04] w-32 h-32 rotate-[15deg]">
+      {/* Parallax Items (Optimized: Hidden on small screens to save GPU) */}
+      <div className="parallax-item absolute top-[12%] left-[60%] opacity-[0.04] w-32 h-32 rotate-[15deg] hidden md:block will-change-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="w-full h-full brightness-0 invert" alt="" />
       </div>
 
-      <div className="parallax-item absolute top-[45%] left-[15%] opacity-[0.03] w-48 h-48 -rotate-[10deg]">
+      <div className="parallax-item absolute top-[45%] left-[15%] opacity-[0.03] w-48 h-48 -rotate-[10deg] hidden md:block will-change-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="w-full h-full brightness-0 invert" alt="" />
       </div>
 
-      <div className="parallax-item absolute bottom-[25%] right-[20%] opacity-[0.05] w-24 h-24 rotate-[5deg]">
+      <div className="parallax-item absolute bottom-[25%] right-[20%] opacity-[0.05] w-24 h-24 rotate-[5deg] hidden md:block will-change-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="w-full h-full brightness-0 invert" alt="" />
       </div>
 
-      <div className="parallax-item absolute top-[5%] left-[30%] opacity-[0.025] w-20 h-20 -rotate-[25deg]">
+      <div className="parallax-item absolute top-[5%] left-[30%] opacity-[0.025] w-20 h-20 -rotate-[25deg] hidden md:block will-change-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="w-full h-full brightness-0 invert" alt="" />
       </div>
 
-      <div className="parallax-item absolute bottom-[10%] left-[45%] opacity-[0.03] w-32 h-32 rotate-[12deg]">
+      <div className="parallax-item absolute bottom-[10%] left-[45%] opacity-[0.03] w-32 h-32 rotate-[12deg] hidden md:block will-change-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="w-full h-full brightness-0 invert" alt="" />
       </div>
 
-      <div className="parallax-item absolute top-[25%] right-[5%] opacity-30 w-40 h-40">
+      <div className="parallax-item absolute top-[25%] right-[5%] opacity-30 w-40 h-40 hidden md:block will-change-transform">
         <img src="https://pngimg.com/uploads/box/box_PNG56.png" className="w-full h-full grayscale brightness-50 contrast-125 rotate-[25deg]" alt="" />
       </div>
 
-      <div className="parallax-item absolute top-[5%] left-[5%] opacity-30 w-32 h-32 rotate-12">
+      <div className="parallax-item absolute top-[5%] left-[5%] opacity-30 w-32 h-32 rotate-12 hidden md:block will-change-transform">
         <img src="https://pngimg.com/uploads/box/box_PNG56.png" className="w-full h-full grayscale brightness-50 contrast-125" alt="" />
       </div>
-
 
     </div>
   );
