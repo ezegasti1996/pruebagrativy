@@ -447,8 +447,12 @@ const Benefits: React.FC = () => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
                 }
             });
+        }, {
+            rootMargin: '0px 0px 150px 0px',
+            threshold: 0.01
         });
         document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
       `}} />
