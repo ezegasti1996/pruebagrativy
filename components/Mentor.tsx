@@ -34,44 +34,21 @@ const Mentor: React.FC = () => {
 
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-                        {/* Interactive Image Side */}
-                        <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start perspective-2000">
-                            <div
-                                onClick={() => setIsExpanded(!isExpanded)}
-                                className="relative w-full max-w-[450px] h-[600px] md:h-[550px] cursor-pointer"
-                            >
-                                {/* THE "BACK" IMAGE (The one that comes to front) */}
-                                <div
-                                    className={`absolute inset-0 rounded-[30px] md:rounded-[40px] overflow-hidden border-2 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] shadow-2xl
-                                    ${isExpanded
-                                            ? 'z-40 scale-100 md:scale-110 border-amazon/50 rotate-0 translate-y-0 shadow-[0_40px_100px_rgba(0,0,0,0.8)]'
-                                            : 'z-10 scale-100 border-white/10 rotate-0 shadow-black'
-                                        }
-                                `}
-                                >
+                        {/* Image Side - Simplified and Straightened */}
+                        <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
+                            <div className="relative w-full max-w-[450px] h-[600px] md:h-[550px]">
+                                {/* Main Image Card */}
+                                <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl z-10">
                                     <img
                                         src="/emi-pool.jpg"
                                         alt="Emi de la Sierra"
-                                        className={`w-full h-full object-cover object-top transition-transform duration-1000 ${isExpanded ? 'scale-100' : 'scale-110 group-hover:scale-105'}`}
+                                        className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                                     />
-                                    <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500 ${isExpanded ? 'opacity-40' : 'opacity-60'}`}></div>
-
-                                    {isExpanded && (
-                                        <div className="absolute top-6 right-6 z-50 bg-black/50 backdrop-blur-xl p-2 rounded-full border border-white/20 text-white hover:bg-amazon hover:text-black transition-colors animate-fade-in">
-                                            <X className="w-6 h-6" />
-                                        </div>
-                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                                 </div>
 
-                                {/* THE "FRONT" CARD (The one that goes to back) */}
-                                <div
-                                    className={`absolute bottom-4 left-1/2 -translate-x-1/2 lg:bottom-12 lg:left-auto lg:top-auto lg:right-[-20px] lg:translate-x-0 lg:translate-y-0 z-20 bg-[#021024]/90 backdrop-blur-2xl border border-white/10 p-4 lg:p-6 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-[85%] max-w-[260px] lg:max-w-[280px] text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                    ${isExpanded
-                                            ? 'translate-y-[140%] opacity-0 lg:opacity-100 lg:translate-y-[120%] lg:translate-x-[20%] lg:rotate-12 blur-[1px]'
-                                            : 'opacity-100 scale-100 rotate-0 hover:rotate-0 hover:border-amazon hover:shadow-[0_0_40px_rgba(255,153,0,0.4)]'
-                                        }
-                                `}
-                                >
+                                {/* Floating Stats Card - No rotation, fixed position */}
+                                <div className="absolute bottom-6 left-6 right-6 lg:left-auto lg:right-[-40px] lg:bottom-16 z-20 bg-[#021024]/95 backdrop-blur-xl border border-white/10 p-5 rounded-[24px] shadow-2xl text-center transform lg:translate-x-0">
                                     <div className="flex justify-between items-center mb-1">
                                         <h3 className="text-[#FF9900] font-heading font-black text-2xl lg:text-3xl uppercase tracking-tighter">TU MENTOR</h3>
                                         <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
@@ -85,14 +62,14 @@ const Mentor: React.FC = () => {
 
                                     <div className="space-y-1 mb-4">
                                         <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">TOTAL REVENUE:</p>
-                                        <p className="text-white text-4xl lg:text-5xl font-black tracking-tight leading-none animate-shake-vertical inline-block">
+                                        <p className="text-white text-4xl lg:text-5xl font-black tracking-tight leading-none inline-block">
                                             <span className="text-2xl align-top mr-1 text-amazon">+</span>$25M
                                         </p>
                                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Verified Seller</p>
                                     </div>
 
                                     {/* Push Venta Line */}
-                                    <div className="mb-0 lg:mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2 animate-pulse-slow">
+                                    <div className="mb-0 lg:mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2">
                                         <TrendingUp className="w-3.5 h-3.5 text-green-400" />
                                         <span className="text-green-400 text-[10px] lg:text-[11px] font-black tracking-wide uppercase">Ventas hoy: <span className="text-white text-sm ml-1">{salesCount}</span></span>
                                     </div>
@@ -108,8 +85,8 @@ const Mentor: React.FC = () => {
                                     </div>
                                 </div>
 
-                                {/* Floating Amazon Icon - Stays at bottom */}
-                                <div className={`absolute -bottom-6 -left-6 w-24 h-24 transition-all duration-700 ${isExpanded ? 'opacity-0 translate-y-4' : 'opacity-60 animate-float-slow'}`}>
+                                {/* Floating Amazon Icon - Simple animation */}
+                                <div className="absolute -bottom-8 -left-8 w-24 h-24 opacity-60 animate-float-slow z-0">
                                     <img
                                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                                         className="w-full h-full object-contain brightness-0 invert"
@@ -119,14 +96,14 @@ const Mentor: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Text Side */}
-                        <div className={`transition-all duration-700 ${isExpanded ? 'opacity-20 blur-[2px] scale-95 lg:opacity-100 lg:blur-0 lg:scale-100' : 'opacity-100 blur-0 scale-100'}`}>
-                            <h2 className="text-4xl md:text-5xl font-black font-heading mb-8 leading-tight text-left">
+                        {/* Text Side - Clean layout */}
+                        <div className="text-left">
+                            <h2 className="text-4xl md:text-5xl font-black font-heading mb-8 leading-tight">
                                 APRENDE DE QUIEN <br />
-                                YA HA <span className="text-amazon inline-block transform hover:scale-110 transition-transform duration-300 cursor-cell underline decoration-amazon/30 decoration-4 underline-offset-4">VENDIDO.</span>
+                                YA HA <span className="text-amazon inline-block underline decoration-amazon/30 decoration-4 underline-offset-4">VENDIDO.</span>
                             </h2>
 
-                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed pl-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30 text-left">
+                            <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed pl-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30">
                                 <p>
                                     <span className="text-white font-bold block mb-1">Soy Emi de la Sierra.</span>
                                     <span className="text-amazon font-bold bg-amazon/10 px-2 py-0.5 rounded border border-amazon/20 inline-block mt-2">+$25M USD</span> facturados. Más de 8 años vendiendo online, con libertad financiera absoluta.
