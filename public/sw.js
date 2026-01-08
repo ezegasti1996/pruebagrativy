@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fba-academy-v6';
+const CACHE_NAME = 'fba-academy-v7';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
