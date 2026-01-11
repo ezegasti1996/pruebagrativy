@@ -42,105 +42,120 @@ const Mentor: React.FC = () => {
 
                     <div className="hidden md:block absolute top-0 right-0 w-[500px] h-[500px] bg-amazon/5 blur-[120px] rounded-full pointer-events-none transition-all duration-1000 group-hover:bg-amazon/10"></div>
 
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                        {/* Image Side - Simplified and Straightened */}
+                        {/* Image Side - Luxury Framing */}
                         <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
-                            <div className="relative w-full max-w-[450px] h-[550px] sm:h-[600px] md:h-[550px]">
+                            <div className="relative w-full max-w-[480px] h-[550px] sm:h-[650px] group/mentor">
+                                {/* Glow Effect Behind */}
+                                <div className="absolute -inset-4 bg-amazon/20 blur-3xl rounded-full opacity-0 group-hover/mentor:opacity-100 transition-opacity duration-1000"></div>
+
                                 {/* Main Image Card */}
-                                <div className="absolute inset-0 rounded-[24px] md:rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl z-10">
+                                <div className="absolute inset-0 rounded-[40px] overflow-hidden border border-white/10 shadow-2xl z-10 bg-[#05070A]">
                                     <img
                                         src="/emi-pool.webp"
                                         srcSet="/emi-pool-mobile.webp 500w, /emi-pool.webp 1200w"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         alt="Emi de la Sierra"
-                                        className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                                        className="w-full h-full object-cover object-center transition-all duration-1000 group-hover/mentor:scale-110 group-hover/mentor:rotate-1"
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                                 </div>
 
-                                {/* Floating Stats Card */}
-                                <div className="absolute bottom-4 left-4 right-4 lg:left-auto lg:right-[-40px] lg:bottom-16 z-20 bg-[#021024]/95 backdrop-blur-xl border border-white/10 p-4 sm:p-5 rounded-[20px] shadow-2xl text-center transform lg:translate-x-0">
-                                    <div className="flex justify-between items-center mb-1">
-                                        <h3 className="text-[#FF9900] font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tighter">TU MENTOR</h3>
-                                        <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
-                                            <span className="relative flex h-2 w-2">
+                                {/* Floating Stats Card - Ultra Premium */}
+                                <div className="absolute bottom-8 -right-4 lg:-right-12 z-20 glass-dark p-6 md:p-8 rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] border border-white/10 transition-all duration-700 group-hover/mentor:translate-x-2 group-hover/mentor:-translate-y-2">
+                                    <div className="flex justify-between items-center mb-6">
+                                        <div className="bg-amazon/10 px-3 py-1 rounded-full border border-amazon/30">
+                                            <span className="text-amazon text-[10px] font-black uppercase tracking-[0.2em]">Verified Partner</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="relative flex h-2.5 w-2.5">
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="h-px w-full bg-gradient-to-r from-transparent via-[#FF9900] to-transparent mb-4 opacity-60"></div>
 
-                                    <div className="space-y-1 mb-4">
-                                        <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">TOTAL REVENUE:</p>
-                                        <p className="text-white text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none inline-block">
-                                            <span className="text-xl sm:text-2xl align-top mr-1 text-amazon">+</span>$25M
-                                        </p>
-                                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Verified Seller</p>
-                                    </div>
-
-                                    {/* Push Venta Line */}
-                                    <div className="mb-0 lg:mb-4 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-xl py-2 px-3 flex items-center justify-center gap-2">
-                                        <TrendingUp className="w-3.5 h-3.5 text-green-400" />
-                                        <span className="text-green-400 text-[10px] lg:text-[11px] font-black tracking-wide uppercase">Ventas hoy: <SalesCounter /></span>
-                                    </div>
-
-                                    <div className="hidden lg:flex pt-3 border-t border-white/5 justify-between items-center">
-                                        <div className="text-left">
-                                            <p className="text-[#FF9900] text-[10px] font-black tracking-wider uppercase">Expert</p>
-                                            <p className="text-white text-xs font-bold">Emi de la Sierra</p>
+                                    <div className="space-y-2 mb-6">
+                                        <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Total Sales Revenue</p>
+                                        <div className="flex items-baseline gap-1">
+                                            <span className="text-amazon text-2xl font-black">$</span>
+                                            <span className="text-white text-5xl md:text-6xl font-black tracking-tighter tabular-nums">25M<span className="text-amazon text-3xl font-heading">+</span></span>
                                         </div>
-                                        <div className="w-8 h-8 rounded-full bg-amazon text-black flex items-center justify-center">
-                                            <UserCheck className="w-4 h-4" />
+                                    </div>
+
+                                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5 flex items-center gap-4">
+                                        <div className="w-12 h-12 rounded-xl bg-amazon/20 flex items-center justify-center border border-amazon/30">
+                                            <TrendingUp className="w-6 h-6 text-amazon" />
+                                        </div>
+                                        <div>
+                                            <p className="text-white font-black text-sm uppercase tracking-tight">Ventas Hoy</p>
+                                            <p className="text-green-400 font-bold text-xs uppercase tracking-widest flex items-center gap-1">
+                                                <SalesCounter /> Unidades
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Floating Amazon Icon */}
-                                <div className="absolute -bottom-6 -left-6 w-20 h-20 sm:w-24 sm:h-24 opacity-60 animate-float-slow z-0">
+                                <div className="absolute -top-6 -left-6 w-24 h-24 opacity-20 animate-float-slow z-0 grayscale invert">
                                     <img
                                         src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
-                                        className="w-full h-full object-contain brightness-0 invert"
+                                        className="w-full h-full object-contain"
                                         alt="Amazon"
                                         loading="lazy"
-                                        decoding="async"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        {/* Text Side - Responsive Alignment */}
-                        <div className="text-left max-w-lg mx-auto lg:max-w-none lg:mx-0">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading mb-6 sm:mb-8 leading-tight">
-                                APRENDE DE QUIEN <br />
-                                YA HA <span className="text-amazon inline-block underline decoration-amazon/30 decoration-4 underline-offset-4">VENDIDO.</span>
+                        {/* Text Side - High Impact */}
+                        <div className="text-left lg:pl-10">
+                            <div className="inline-block bg-amazon/10 text-amazon text-[10px] font-black px-4 py-2 rounded-lg border border-amazon/20 mb-8 uppercase tracking-[0.4em]">
+                                El Método Sierra
+                            </div>
+                            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black font-heading mb-8 leading-[0.95] tracking-tighter text-white">
+                                APRENDE DE <br />
+                                QUIEN YA LO HA <br />
+                                <span className="text-amazon italic">LOGRADO.</span>
                             </h2>
 
-                            <div className="space-y-4 sm:space-y-6 text-gray-300 text-base sm:text-lg font-medium leading-relaxed pl-0 lg:pl-6 border-l-0 lg:border-l-4 border-amazon/30">
+                            <div className="space-y-6 text-gray-400 text-lg font-medium leading-relaxed max-w-md">
                                 <p>
-                                    <span className="text-white font-bold block mb-1">Soy Emi de la Sierra.</span>
-                                    <span className="text-amazon font-bold bg-amazon/10 px-2 py-0.5 rounded border border-amazon/20 inline-block mt-2">+$25M USD</span> facturados. Más de 8 años vendiendo online, con libertad financiera absoluta.
+                                    <span className="text-white font-bold text-xl block mb-2 font-heading">¿Cansado de gurús que no venden?</span>
+                                    Soy Emi de la Sierra, y he facturado <span className="text-white font-black border-b-2 border-amazon/50">+$25M USD</span> en Amazon FBA aplicando un sistema replicable.
+                                </p>
+                                <p className="text-sm opacity-80">
+                                    He cometido todos los errores para que tú no tengas que hacerlo. Hoy ayudo a personas comprometidas a construir activos reales en el mercado más grande del mundo.
                                 </p>
                             </div>
 
-                            <div className="mt-8 lg:mt-12 flex items-center justify-start gap-4 sm:gap-6 p-4 lg:p-6 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-sm">
-                                <div className="flex flex-col">
-                                    <span className="text-2xl sm:text-3xl font-black text-white">4.9/5</span>
-                                    <div className="flex text-amazon text-sm space-x-0.5">
-                                        {[1, 2, 3, 4, 5].map(i => <span key={i}>★</span>)}
+                            <div className="mt-12 flex flex-wrap items-center gap-6">
+                                <div className="flex items-center gap-4">
+                                    <div className="flex -space-x-2">
+                                        {[1, 2, 3].map(i => (
+                                            <div key={i} className="w-10 h-10 rounded-full border-2 border-bg-dark bg-gray-800 overflow-hidden">
+                                                <img src={`/hero_student_${i}.webp`} alt="Student" className="w-full h-full object-cover" />
+                                            </div>
+                                        ))}
                                     </div>
-                                    <span className="text-[10px] sm:text-xs text-gray-500 uppercase font-bold tracking-wider mt-1">Valoración</span>
+                                    <div>
+                                        <div className="flex text-amazon text-xs">
+                                            {[1, 2, 3, 4, 5].map(i => <span key={i}>★</span>)}
+                                        </div>
+                                        <p className="text-[10px] font-black text-white uppercase tracking-widest mt-0.5">+1,000 Alumnos</p>
+                                    </div>
                                 </div>
-                                <div className="h-10 w-px bg-white/10"></div>
-                                <div className="flex flex-col">
-                                    <span className="text-2xl sm:text-3xl font-black text-white">+1000</span>
-                                    <span className="text-[10px] sm:text-xs text-gray-500 uppercase font-bold tracking-wider mt-1">Alumnos</span>
+                                <div className="h-10 w-px bg-white/10 hidden sm:block"></div>
+                                <div className="text-left">
+                                    <p className="text-amazon font-black text-2xl leading-none">4.9/5</p>
+                                    <p className="text-gray-500 text-[9px] font-black uppercase tracking-widest mt-1">Satisfaction Rate</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 

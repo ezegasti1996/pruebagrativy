@@ -85,13 +85,20 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0 z-10">
           <div className="relative w-full max-w-[380px] lg:max-w-[420px] group">
 
-            {/* Label "SOY EMILIANO" - Clean & Subtle Version */}
-            <div className="absolute top-6 left-6 md:-left-10 z-[60] animate-float-slow pointer-events-none will-change-transform">
-              <div className="bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-amazon shadow-[0_0_10px_#FF9900] animate-pulse"></div>
-                <span className="font-heading font-black text-sm md:text-lg text-white uppercase tracking-widest whitespace-nowrap">
-                  Soy Emiliano
-                </span>
+            {/* Label "SOY EMILIANO" - Ultra Premium Version */}
+            <div className="absolute top-8 left-6 md:-left-12 z-[60] animate-float-slow pointer-events-none transform-gpu">
+              <div className="bg-black/60 backdrop-blur-2xl border border-white/10 px-6 py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-amazon/10 to-transparent opacity-50"></div>
+                <div className="relative flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-amazon shadow-[0_0_15px_#FF9900] animate-pulse"></div>
+                  <span className="font-heading font-black text-xs md:text-sm text-white uppercase tracking-[0.3em] whitespace-nowrap opacity-90">
+                    Marca Personal
+                  </span>
+                  <div className="h-4 w-px bg-white/10 mx-1"></div>
+                  <span className="font-heading font-black text-sm md:text-base text-amazon uppercase tracking-tighter italic">
+                    Emi de la Sierra
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -107,14 +114,14 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 loading="eager"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
             </div>
 
             {/* Weekly Sales Card */}
-            <div className="absolute -bottom-8 -left-4 md:-left-12 z-20 glass p-5 rounded-[24px] w-[260px] md:w-[310px] animate-float-medium shadow-[0_0_40px_rgba(255,153,0,0.15)] transform-gpu will-change-transform">
-              <div className="flex justify-between items-start mb-4">
+            <div className="absolute -bottom-8 -left-4 md:-left-16 z-20 glass-dark p-6 rounded-[30px] w-[280px] md:w-[330px] animate-float-medium shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/5 transform-gpu">
+              <div className="flex justify-between items-start mb-5">
                 <div>
-                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">VENTAS SEMANALES</p>
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1.5 opacity-70">REVENUE WEEKLY</p>
                   <h3 className="text-2xl md:text-3xl font-black font-heading tracking-tight tabular-nums text-white">
                     <CountUp
                       start={74454}
@@ -126,28 +133,28 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                     />
                   </h3>
                 </div>
-                <div className="bg-green-500/15 border border-green-500/30 text-green-400 text-[9px] px-2 py-1 rounded-lg font-black flex items-center gap-1 animate-pulse">
-                  <TrendingUp className="w-3 h-3" />
+                <div className="bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] px-2.5 py-1.5 rounded-xl font-black flex items-center gap-1.5 shadow-[0_0_15px_rgba(34,197,94,0.1)]">
+                  <TrendingUp className="w-3.5 h-3.5" />
                   +44.38%
                 </div>
               </div>
-              <div className="space-y-3">
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="space-y-4">
+                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden p-[1px] border border-white/5">
                   <div
-                    className="h-full bg-amazon shadow-[0_0_20px_rgba(255,153,0,0.6)] rounded-full transition-all duration-[2500ms] ease-out"
+                    className="h-full bg-gradient-to-r from-amazon to-[#FFB84D] shadow-[0_0_20px_rgba(255,153,0,0.4)] rounded-full transition-all duration-[2500ms] ease-out"
                     style={{ width: counterInView ? '82%' : '0%' }}
                   ></div>
                 </div>
-                <div className="flex justify-between text-[10px] font-black text-gray-500 uppercase tracking-tighter">
+                <div className="flex justify-between text-[11px] font-black text-gray-500 uppercase tracking-widest">
                   <span>MON</span>
-                  <span>WED</span>
-                  <span className="text-amazon">FRI</span>
+                  <span className="text-amazon/60">WED</span>
+                  <span className="text-amazon animate-pulse">LIVE</span>
                 </div>
               </div>
             </div>
 
             {/* Floating Amazon Icon */}
-            <div className="absolute top-8 -right-4 z-20 bg-white/95 backdrop-blur-sm p-3 rounded-2xl -rotate-12 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-white/20 flex items-center justify-center group-hover:scale-110 transition-all duration-500 will-change-transform">
+            <div className="absolute top-8 -right-4 z-20 bg-white p-3.5 rounded-2xl -rotate-12 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/20 flex items-center justify-center group-hover:rotate-0 transition-all duration-500 transform-gpu">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg"
                 alt="Amazon"
@@ -164,9 +171,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         .text-shadow-glow { text-shadow: 0 0 10px rgba(255, 153, 0, 0.5); }
         @keyframes float {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          50% { transform: translateY(-12px); }
         }
-        .animate-float-slow { animation: float 4s ease-in-out infinite; }
+        @keyframes badge-move {
+          0%, 100% { transform: rotate(-2deg) scale(1); }
+          50% { transform: rotate(2deg) scale(1.05); }
+        }
+        .animate-float-slow { animation: float 6s ease-in-out infinite; }
+        .animate-float-medium { animation: float 4s ease-in-out infinite; }
+        .animate-badge-move { animation: badge-move 3s ease-in-out infinite; }
       `}</style>
     </section>
   );
