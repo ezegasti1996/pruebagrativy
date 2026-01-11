@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 "/hero_student_3.webp"
               ].map((url, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#121212] bg-gray-800 overflow-hidden relative z-10 shadow-md">
-                  <img src={url} alt="Student" className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" decoding="async" />
+                  <img src={url} alt="Student" width={40} height={40} className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all" loading="eager" decoding="async" />
                 </div>
               ))}
               <div className="w-10 h-10 rounded-full border-2 border-[#121212] bg-amazon text-black flex items-center justify-center relative z-20 text-[10px] font-black shadow-lg">
