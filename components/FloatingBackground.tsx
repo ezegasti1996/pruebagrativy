@@ -63,41 +63,41 @@ const FloatingBackground: React.FC = () => {
 
       <div className="absolute inset-0 w-full h-full transform-gpu">
         {/* Top Right Purple Glow - Static on mobile, Pulse on desktop */}
-        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/10 blur-[80px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute -top-[10%] -right-[20%] w-[90%] h-[50%] bg-[#7C3AED]/10 blur-[80px] rounded-full" style={{ animationDuration: '8s' }}></div>
 
         {/* Middle Left Amazon Orange Glow */}
-        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/5 blur-[90px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+        <div className="absolute top-[30%] -left-[30%] w-[100%] h-[40%] bg-[#FF9900]/5 blur-[90px] rounded-full" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
 
         {/* Bottom Pink Glow */}
-        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full md:mix-blend-screen md:animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
+        <div className="absolute -bottom-[10%] right-[0%] w-[80%] h-[40%] bg-[#EC4899]/10 blur-[80px] rounded-full" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
       </div>
 
       {/* Parallax Items (Optimized: Hidden on small screens to save GPU) */}
-      <div className="parallax-item absolute top-[12%] left-[60%] opacity-[0.04] w-32 h-32 rotate-[15deg] hidden md:block will-change-transform">
+      <div className="parallax-item absolute top-[12%] left-[60%] opacity-[0.04] w-32 h-32 rotate-[15deg] hidden will-change-transform">
         <Package className="w-full h-full text-white" strokeWidth={1} />
       </div>
 
-      <div className="parallax-item absolute top-[45%] left-[15%] opacity-[0.03] w-48 h-48 -rotate-[10deg] hidden md:block will-change-transform">
+      <div className="parallax-item absolute top-[45%] left-[15%] opacity-[0.03] w-48 h-48 -rotate-[10deg] hidden will-change-transform">
         <Package className="w-full h-full text-white" strokeWidth={0.5} />
       </div>
 
-      <div className="parallax-item absolute bottom-[25%] right-[20%] opacity-[0.05] w-24 h-24 rotate-[5deg] hidden md:block will-change-transform">
+      <div className="parallax-item absolute bottom-[25%] right-[20%] opacity-[0.05] w-24 h-24 rotate-[5deg] hidden will-change-transform">
         <Package className="w-full h-full text-white" strokeWidth={1} />
       </div>
 
-      <div className="parallax-item absolute top-[5%] left-[30%] opacity-[0.025] w-20 h-20 -rotate-[25deg] hidden md:block will-change-transform">
+      <div className="parallax-item absolute top-[5%] left-[30%] opacity-[0.025] w-20 h-20 -rotate-[25deg] hidden will-change-transform">
         <Package className="w-full h-full text-white" strokeWidth={1.5} />
       </div>
 
-      <div className="parallax-item absolute bottom-[10%] left-[45%] opacity-[0.03] w-32 h-32 rotate-[12deg] hidden md:block will-change-transform">
+      <div className="parallax-item absolute bottom-[10%] left-[45%] opacity-[0.03] w-32 h-32 rotate-[12deg] hidden will-change-transform">
         <Package className="w-full h-full text-white" strokeWidth={0.8} />
       </div>
 
-      <div className="parallax-item absolute top-[25%] right-[5%] opacity-10 w-40 h-40 hidden md:block will-change-transform">
+      <div className="parallax-item absolute top-[25%] right-[5%] opacity-10 w-40 h-40 hidden will-change-transform">
         <Package className="w-full h-full text-white/20" strokeWidth={0.5} />
       </div>
 
-      <div className="parallax-item absolute top-[5%] left-[5%] opacity-10 w-32 h-32 rotate-12 hidden md:block will-change-transform">
+      <div className="parallax-item absolute top-[5%] left-[5%] opacity-10 w-32 h-32 rotate-12 hidden will-change-transform">
         <Package className="w-full h-full text-white/20" strokeWidth={0.5} />
       </div>
 
