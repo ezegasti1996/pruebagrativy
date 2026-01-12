@@ -13,31 +13,31 @@ const Results: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-6xl">
                     <img
-                        src="/result_cristian.webp"
-                        alt="Resultado Cristian"
+                        src="/resultado_alumno_1.webp"
+                        alt="Resultado Alumno 1"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
-                        width={300}
-                        height={550}
+                        width={500}
+                        height={888}
                     />
                     <img
-                        src="/result_sofia.webp"
-                        alt="Resultado Sofia"
+                        src="/resultado_alumno_2.webp"
+                        alt="Resultado Alumno 2"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
-                        width={300}
-                        height={550}
+                        width={500}
+                        height={888}
                     />
                     <img
-                        src="/result_javier.webp"
-                        alt="Resultado Javier"
+                        src="/resultado_alumno_3.webp"
+                        alt="Resultado Alumno 3"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
-                        width={300}
-                        height={550}
+                        width={500}
+                        height={888}
                     />
                 </div>
             </div>
