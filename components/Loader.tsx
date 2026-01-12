@@ -48,12 +48,13 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
 
             <style>{`
         @keyframes loading-bar {
-          0% { width: 0%; transform: translateX(-100%); }
-          50% { width: 70%; }
-          100% { width: 100%; transform: translateX(0); }
+          0% { transform: scaleX(0); }
+          50% { transform: scaleX(0.7); }
+          100% { transform: scaleX(1); }
         }
         .animate-loading-bar {
           animation: loading-bar 4s ease-out forwards;
+          transform-origin: left;
         }
       `}</style>
         </div>,

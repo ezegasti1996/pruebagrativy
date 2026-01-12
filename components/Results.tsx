@@ -18,6 +18,8 @@ const Results: React.FC = () => {
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
+                        width={300}
+                        height={550}
                     />
                     <img
                         src="/result_sofia.webp"
@@ -25,6 +27,8 @@ const Results: React.FC = () => {
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
+                        width={300}
+                        height={550}
                     />
                     <img
                         src="/result_javier.webp"
@@ -32,6 +36,8 @@ const Results: React.FC = () => {
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
+                        width={300}
+                        height={550}
                     />
                 </div>
             </div>

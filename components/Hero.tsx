@@ -168,7 +168,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         }
         .animate-float-slow { animation: float 4s ease-in-out infinite; }
       `}</style>
-    </section>
+    </section >
   );
 };
 
