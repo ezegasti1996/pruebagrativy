@@ -27,10 +27,7 @@ const Footer: React.FC = () => {
 
 
 
-        <p className="text-[10px] text-gray-600 text-center max-w-2xl leading-relaxed uppercase font-bold tracking-widest px-4">
-          Amazon FBA Academy es una plataforma independiente. Amazon y el logo de Amazon son marcas comerciales de Amazon.com, Inc. o sus afiliados.
-          <br />Este sitio no es parte del sitio web de Amazon ni de Amazon Inc.
-        </p>
+
 
         <p className="mt-8 text-[11px] font-black text-gray-700 uppercase tracking-[0.4em]">
           © 2026 FBA ACADEMY
