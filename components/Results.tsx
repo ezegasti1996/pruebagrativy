@@ -11,7 +11,7 @@ const Results: React.FC = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-6xl">
                     <img
                         src="/resultado_real_1.webp"
                         alt="Resultado Real 1"
@@ -33,15 +33,6 @@ const Results: React.FC = () => {
                     <img
                         src="/resultado_real_3.webp"
                         alt="Resultado Real 3"
-                        className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
-                        loading="lazy"
-                        decoding="async"
-                        width={500}
-                        height={888}
-                    />
-                    <img
-                        src="/resultado_real_4.webp"
-                        alt="Resultado Real 4"
                         className="w-full h-auto rounded-[20px] shadow-2xl border border-gray-200"
                         loading="lazy"
                         decoding="async"
