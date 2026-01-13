@@ -36,34 +36,6 @@ const NOTIFICATIONS: NotificationData[] = [
         )
     },
     {
-        title: "Pago transferido",
-        time: "hace 4h",
-        type: 'payment',
-        message: <span className="text-gray-200">Amazon te ha enviado <span className="text-white font-bold">410,20 €</span></span>
-    },
-    {
-        title: "¡Venta realizada!",
-        time: "hace 12m",
-        type: 'sale',
-        message: (
-            <div className="flex gap-3 items-center">
-                <div className="w-10 h-10 rounded border border-white/10 bg-white p-0.5 shrink-0 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=100&q=80" alt="Chair" className="w-full h-full object-cover rounded-sm" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                    <span className="text-gray-200 text-xs leading-tight">Silla Ergonómica Pro</span>
-                    <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +64,00 €</span>
-                </div>
-            </div>
-        )
-    },
-    {
-        title: "Resumen de ventas",
-        time: "hace 8h",
-        type: 'payment',
-        message: <span className="text-gray-200">Ventas de hoy: <span className="text-white font-bold">1.450,25 €</span></span>
-    },
-    {
         title: "¡Venta realizada!",
         time: "hace 15m",
         type: 'sale',
@@ -75,22 +47,6 @@ const NOTIFICATIONS: NotificationData[] = [
                 <div className="flex flex-col gap-0.5">
                     <span className="text-gray-200 text-xs leading-tight">Teclado Mecánico RGB ⌨️</span>
                     <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +45,90 €</span>
-                </div>
-            </div>
-        )
-    },
-    {
-        title: "¡Venta realizada!",
-        time: "hace 18m",
-        type: 'sale',
-        message: (
-            <div className="flex gap-3 items-center">
-                <div className="w-10 h-10 rounded border border-white/10 bg-white p-0.5 shrink-0 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=100&q=80" alt="Smartwatch" className="w-full h-full object-cover rounded-sm" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                    <span className="text-gray-200 text-xs leading-tight">Smartwatch Deportivo ⌚</span>
-                    <span className="text-[#FF9900] font-bold text-[10px]">Beneficio: +38,50 €</span>
                 </div>
             </div>
         )
