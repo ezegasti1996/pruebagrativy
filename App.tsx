@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 const LeadFormModal = React.lazy(() => import('./components/LeadFormModal'));
 const WarningModal = React.lazy(() => import('./components/WarningModal'));
 const VideoPage = React.lazy(() => import('./components/VideoPage'));
+const VideoViralista = React.lazy(() => import('./components/VideoViralista'));
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -120,6 +121,10 @@ function App() {
           {pathname === '/video' ? (
             <Suspense fallback={null}>
               <VideoPage />
+            </Suspense>
+          ) : pathname === '/video2' ? (
+            <Suspense fallback={null}>
+              <VideoViralista />
             </Suspense>
           ) : (
             <>
